@@ -122,7 +122,10 @@ class Brain:
     save_winners: Boolean flag, whether to save winners.
     disable_plasticity: Debug flag for disabling plasticity.
   """
-  def __init__(self, p, save_size=True, save_winners=False, seed=0):
+  def __init__(self, p, save_size=True, save_winners=False, seed=0,
+               use_gaussian_noise=False, gaussian_noise_scale=5.0,
+               plasticity_rule='multiplicative',
+               cf_alpha=0.63, cf_beta=0.5, cf_lambda=26.0):
     self.area_by_name = {}
     self.stimulus_size_by_name = {}
     self.connectomes_by_stimulus = {}
@@ -131,9 +134,27 @@ class Brain:
     self.save_size = save_size
     self.save_winners = save_winners
     self.disable_plasticity = False
-    self._rng = np.random.default_rng(seed=seed)    
+    self._rng = np.random.default_rng(seed=seed)
     # For debugging purposes in applications (eg. language)
     self._use_normal_ppf = False
+    # Coin-Flipping additions (Dabagia et al. 2024). Defaults are off so
+    # existing Parser / NEMO behavior is unchanged.
+    self.use_gaussian_noise = use_gaussian_noise
+    self.gaussian_noise_scale = gaussian_noise_scale
+    if plasticity_rule not in ('multiplicative', 'coin_flipping'):
+      raise ValueError(
+        f"plasticity_rule must be 'multiplicative' or 'coin_flipping', "
+        f"got {plasticity_rule!r}")
+    self.plasticity_rule = plasticity_rule
+    self.cf_alpha = cf_alpha
+    self.cf_beta = cf_beta
+    self.cf_lambda = cf_lambda
+
+  def _coin_flip_pi(self, w):
+    # pi(w) = min(alpha, exp(lambda * (1 + beta - w))).
+    # Works for scalar or numpy-array input.
+    return np.minimum(self.cf_alpha,
+                      np.exp(self.cf_lambda * (1.0 + self.cf_beta - w)))
 
   def add_stimulus(self, stimulus_name, size):
     """Add a stimulus to the current instance.
@@ -427,6 +448,13 @@ class Brain:
 	    else:  # Case: Area is explicit.
 	      all_potential_winner_inputs = prev_winner_inputs
 
+	    # Coin-Flipping: optional Gaussian noise on neuronal activations.
+	    # std = scale * sqrt(k * p), default scale = 5 (Dabagia et al. 2024).
+	    if self.use_gaussian_noise:
+	      noise_std = self.gaussian_noise_scale * math.sqrt(target_area.k * self.p)
+	      noise = rng.normal(0.0, noise_std, size=len(all_potential_winner_inputs)).astype(np.float32)
+	      all_potential_winner_inputs = all_potential_winner_inputs + noise
+
 	    new_winner_indices = heapq.nlargest(target_area.k,
 	                                        range(len(all_potential_winner_inputs)),
 	                                        all_potential_winner_inputs.__getitem__)
@@ -496,8 +524,13 @@ class Brain:
       stim_to_area_beta = target_area.beta_by_stimulus[stim]
       if self.disable_plasticity:
         stim_to_area_beta = 0.0
-      for i in target_area._new_winners:
-        target_connectome[i] *= 1 + stim_to_area_beta
+      if self.plasticity_rule == 'coin_flipping' and not self.disable_plasticity:
+        winners_arr = np.asarray(target_area._new_winners, dtype=np.int64)
+        w = target_connectome[winners_arr]
+        target_connectome[winners_arr] = w + self._coin_flip_pi(w)
+      else:
+        for i in target_area._new_winners:
+          target_connectome[i] *= 1 + stim_to_area_beta
       if verbose >= 2:
         print(f"{stim} now looks like: ")
         print(self.connectomes_by_stimulus[stim][target_area_name])
@@ -539,9 +572,19 @@ class Brain:
       area_to_area_beta = (
         0 if self.disable_plasticity
         else target_area.beta_by_area[from_area_name])
-      for i in target_area._new_winners:
-        for j in from_area_winners:
-          the_connectome[j, i] *= 1.0 + area_to_area_beta
+      if self.plasticity_rule == 'coin_flipping' and not self.disable_plasticity:
+        winners_arr = np.asarray(target_area._new_winners, dtype=np.int64)
+        from_arr = np.asarray(from_area_winners, dtype=np.int64)
+        idx = np.ix_(from_arr, winners_arr)
+        W = the_connectome[idx]
+        # Only update edges that actually exist (W > 0); the additive
+        # rule would otherwise create synapses out of nothing.
+        update = np.where(W > 0, self._coin_flip_pi(W), 0.0).astype(W.dtype)
+        the_connectome[idx] = W + update
+      else:
+        for i in target_area._new_winners:
+          for j in from_area_winners:
+            the_connectome[j, i] *= 1.0 + area_to_area_beta
       if verbose >= 2:
         print(f"Connectome of {from_area_name} to {target_area_name} is now:",
               the_connectome)
