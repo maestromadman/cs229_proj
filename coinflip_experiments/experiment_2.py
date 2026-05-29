@@ -114,11 +114,14 @@ def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
         train_presentations=5, internal_factor=nx.INTERNAL_FACTOR,
         noise_scale=nx.NOISE_SCALE_DEFAULT, engine="meanfield", seed=0,
         device="auto", batch=None, max_rounds=20, n_ratio=None,
-        noise_every_round=False, verbose=True):
+        noise_every_round=False, w_input=None, verbose=True):
     # n_ratio: if set, neurons scale with cap as n_k = round(n_ratio * k), holding
     # assembly density constant (the paper's n/k = 25000/500 = 50).  This is the
     # regime in which Fig 5's decreasing curve appears; fixed n gives the opposite.
-    w = nx.train_assembly_weight(train_presentations)   # equal weights for A,B
+    # w_input: weight on I -> A and I -> B; if None, use the trained value (Fig 3b
+    # convention); the paper Fig 5 sets it directly to 2 (the "here, 2" in §4.2).
+    w = (float(w_input) if w_input is not None
+         else nx.train_assembly_weight(train_presentations))   # equal weights A,B
     master = np.random.default_rng(seed)
     if engine == "torch":
         dev = nx.torch_device(device)
@@ -208,6 +211,10 @@ def main():
                     help="apply Gaussian noise on every recurrent round (the "
                          "general update x(t+1)=k-cap(Wx+z(t))), not just round 0; "
                          "should lower the large-k plateau toward the sampling floor")
+    ap.add_argument("--w", type=float, default=2.0,
+                    help="weight on I->A and I->B; paper Fig 5 sets it directly "
+                         "to 2 (default). Pass a smaller value to use a trained "
+                         "weight instead.")
     ap.add_argument("--n", type=int, default=nx.N_DEFAULT,
                     help="neurons per area (used when --n-ratio is not set)")
     ap.add_argument("--n-ratio", type=float, default=None,
@@ -236,7 +243,7 @@ def main():
         devs = run(ks=ks, n=args.n, n_graphs=ng, n_trials=nt,
                    engine=args.engine, seed=args.seed, device=args.device,
                    batch=args.batch, max_rounds=args.rounds, n_ratio=args.n_ratio,
-                   noise_every_round=args.noise_every_round)
+                   noise_every_round=args.noise_every_round, w_input=args.w)
         got = sorted(devs)
         means = [devs[k].mean() for k in got]
         trend = ("DECREASING (matches Fig 5)"
@@ -249,7 +256,8 @@ def main():
     devs = run(ks=ks_arg or K_SWEEP, n=args.n, n_graphs=args.graphs,
                n_trials=args.trials, engine=args.engine, seed=args.seed,
                device=args.device, batch=args.batch, max_rounds=args.rounds,
-               n_ratio=args.n_ratio)
+               n_ratio=args.n_ratio, noise_every_round=args.noise_every_round,
+               w_input=args.w)
     plot(devs, args.trials, args.graphs, args.out, engine=args.engine,
          n_ratio=args.n_ratio)
 

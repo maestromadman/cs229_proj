@@ -52,6 +52,8 @@ def main():
     ap.add_argument("--noise-every-round", action="store_true",
                     help="apply Gaussian noise on every recurrent round, not "
                          "just round 0")
+    ap.add_argument("--w", type=float, default=2.0,
+                    help="weight on I->A and I->B; paper Fig 5 sets directly to 2")
     ap.add_argument("--ks", type=str, default=None,
                     help="comma-separated cap sizes; defaults to "
                          "experiment_2.K_SWEEP")
@@ -68,7 +70,7 @@ def main():
     devs = e2.run(ks=ks, n=25000, n_graphs=args.graphs, n_trials=args.trials,
                   engine=args.engine, seed=args.seed, device=args.device,
                   batch=args.batch, max_rounds=args.rounds,
-                  noise_every_round=args.noise_every_round)
+                  noise_every_round=args.noise_every_round, w_input=args.w)
     e2.plot(devs, args.trials, args.graphs, args.out, engine=args.engine)
 
 
