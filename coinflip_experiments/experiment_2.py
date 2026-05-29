@@ -163,14 +163,11 @@ def plot(devs, n_trials, n_graphs, out_path, engine="meanfield", n_ratio=None):
     mean = np.array([devs[k].mean() for k in ks])
     lo = np.array([devs[k].min() for k in ks])
     hi = np.array([devs[k].max() for k in ks])
-    unbiased = nx.unbiased_max_deviation(n_trials, n_graphs)
 
     fig, ax = plt.subplots(figsize=(5.8, 4.3))
     ax.fill_between(ks, lo, hi, color="#9ecae1", alpha=0.6, label="range across trials")
     ax.plot(ks, mean, color="#08519c", lw=2, marker="o", ms=4,
             label="Empirical Mean Error")
-    ax.axhline(unbiased, color="k", ls="--", lw=1.5,
-               label=f"Unbiased Maximum ({unbiased:.3f})")
     ax.set_xlabel("Cap Size")
     ax.set_ylabel("Error in Proportion")
     ax.set_ylim(0.0, max(hi.max(), 0.5) * 1.05)
@@ -190,7 +187,6 @@ def plot(devs, n_trials, n_graphs, out_path, engine="meanfield", n_ratio=None):
     fig.tight_layout()
     fig.savefig(out_path, dpi=200)
     plt.close(fig)
-    print(f"[2] unbiased-maximum reference = {unbiased:.4f}")
     print(f"[2] wrote {out_path}")
 
 
