@@ -87,7 +87,7 @@ def _dev_sparse(k, n, p, w, n_graphs, n_trials, internal_factor,
 
 
 def _dev_torch(k, n, p, w, n_graphs, n_trials, internal_factor, noise_scale,
-               master, device, batch, max_rounds):
+               master, device, batch, max_rounds, noise_every_round):
     import torch
     sigma = nx.noise_std(k, p, noise_scale)
     d = np.zeros(n_graphs)
@@ -100,7 +100,8 @@ def _dev_torch(k, n, p, w, n_graphs, n_trials, internal_factor, noise_scale,
             np_rng=np_rng, torch_gen=tgen)
         winners = nx.sample_winners_torch(
             W, in_deg, asm, [w, w], k, sigma, n_trials, max_rounds=max_rounds,
-            batch=batch, torch_gen=tgen)
+            batch=batch, torch_gen=tgen,
+            noise_every_round=noise_every_round)
         pA = (winners == 0).to(torch.float32).mean().item()
         d[g] = abs(pA - 0.5)
         del W, in_deg, asm, winners
@@ -112,7 +113,8 @@ def _dev_torch(k, n, p, w, n_graphs, n_trials, internal_factor, noise_scale,
 def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
         train_presentations=5, internal_factor=nx.INTERNAL_FACTOR,
         noise_scale=nx.NOISE_SCALE_DEFAULT, engine="meanfield", seed=0,
-        device="auto", batch=None, max_rounds=20, n_ratio=None, verbose=True):
+        device="auto", batch=None, max_rounds=20, n_ratio=None,
+        noise_every_round=False, verbose=True):
     # n_ratio: if set, neurons scale with cap as n_k = round(n_ratio * k), holding
     # assembly density constant (the paper's n/k = 25000/500 = 50).  This is the
     # regime in which Fig 5's decreasing curve appears; fixed n gives the opposite.
@@ -122,8 +124,8 @@ def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
         dev = nx.torch_device(device)
         def dev_fn(k, n, p, w, ng, nt, ifac, nscale, m):
             return _dev_torch(k, n, p, w, ng, nt, ifac, nscale, m,
-                              dev, batch, max_rounds)
-        engine_desc = f"torch[{dev.type}]"
+                              dev, batch, max_rounds, noise_every_round)
+        engine_desc = f"torch[{dev.type}]" + (" +noise/round" if noise_every_round else "")
     elif engine == "sparse":
         dev_fn = _dev_sparse
         engine_desc = "sparse[cpu]"
@@ -132,7 +134,8 @@ def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
         engine_desc = "meanfield"
     devs = {}
     if verbose:
-        print(f"[2] engine={engine_desc}, equal weights w={w:.4f}, n={n}, "
+        n_desc = f"n={n_ratio:g}*k" if n_ratio else f"n={n}"
+        print(f"[2] engine={engine_desc}, equal weights w={w:.4f}, {n_desc}, "
               f"{n_graphs} graphs/k, {n_trials} trials/graph")
     t0 = time.time()
     for k in ks:
@@ -178,8 +181,8 @@ def plot(devs, n_trials, n_graphs, out_path, engine="meanfield", n_ratio=None):
                 transform=ax.transAxes, fontsize=7, color="0.4", ha="center")
     elif not n_ratio:
         ax.text(0.5, 0.02,
-                "fixed n: error RISES with k (assemblies don't register at\n"
-                "small k). For the paper's decreasing curve add --n-ratio 50.",
+                "fixed n: error RISES with k (small-k assemblies don't register\n"
+                "in the cap). For the paper's decreasing shape add --n-ratio 10.",
                 transform=ax.transAxes, fontsize=7, color="0.4", ha="center")
     fig.tight_layout()
     fig.savefig(out_path, dpi=200)
@@ -201,6 +204,10 @@ def main():
                     help="torch noise-sample batch size (default: all at once)")
     ap.add_argument("--rounds", type=int, default=20,
                     help="recurrent k-cap rounds (sparse/torch engines)")
+    ap.add_argument("--noise-every-round", action="store_true",
+                    help="apply Gaussian noise on every recurrent round (the "
+                         "general update x(t+1)=k-cap(Wx+z(t))), not just round 0; "
+                         "should lower the large-k plateau toward the sampling floor")
     ap.add_argument("--n", type=int, default=nx.N_DEFAULT,
                     help="neurons per area (used when --n-ratio is not set)")
     ap.add_argument("--n-ratio", type=float, default=None,
@@ -228,7 +235,8 @@ def main():
               f"{ng} graphs, {nt} trials")
         devs = run(ks=ks, n=args.n, n_graphs=ng, n_trials=nt,
                    engine=args.engine, seed=args.seed, device=args.device,
-                   batch=args.batch, max_rounds=args.rounds, n_ratio=args.n_ratio)
+                   batch=args.batch, max_rounds=args.rounds, n_ratio=args.n_ratio,
+                   noise_every_round=args.noise_every_round)
         got = sorted(devs)
         means = [devs[k].mean() for k in got]
         trend = ("DECREASING (matches Fig 5)"
