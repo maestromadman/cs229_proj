@@ -112,7 +112,10 @@ def _dev_torch(k, n, p, w, n_graphs, n_trials, internal_factor, noise_scale,
 def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
         train_presentations=5, internal_factor=nx.INTERNAL_FACTOR,
         noise_scale=nx.NOISE_SCALE_DEFAULT, engine="meanfield", seed=0,
-        device="auto", batch=None, max_rounds=20, verbose=True):
+        device="auto", batch=None, max_rounds=20, n_ratio=None, verbose=True):
+    # n_ratio: if set, neurons scale with cap as n_k = round(n_ratio * k), holding
+    # assembly density constant (the paper's n/k = 25000/500 = 50).  This is the
+    # regime in which Fig 5's decreasing curve appears; fixed n gives the opposite.
     w = nx.train_assembly_weight(train_presentations)   # equal weights for A,B
     master = np.random.default_rng(seed)
     if engine == "torch":
@@ -133,16 +136,23 @@ def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
               f"{n_graphs} graphs/k, {n_trials} trials/graph")
     t0 = time.time()
     for k in ks:
-        devs[k] = dev_fn(k, n, p, w, n_graphs, n_trials, internal_factor,
+        n_k = int(round(n_ratio * k)) if n_ratio else n
+        if engine == "torch" and n_k * n_k * 4 > 20e9:
+            print(f"   k={k}: SKIP (dense {n_k}x{n_k} float32 = "
+                  f"{n_k*n_k*4/1e9:.0f} GB > ~20 GB GPU budget; "
+                  f"use --engine sparse or a smaller --n-ratio)")
+            continue
+        devs[k] = dev_fn(k, n_k, p, w, n_graphs, n_trials, internal_factor,
                          noise_scale, master)
         if verbose:
             d = devs[k]
-            print(f"   k={k:<5d} mean|err|={d.mean():.4f} min={d.min():.4f} "
-                  f"max={d.max():.4f} ({time.time()-t0:.1f}s)")
+            ntag = f" n={n_k}" if n_ratio else ""
+            print(f"   k={k:<5d}{ntag} mean|err|={d.mean():.4f} "
+                  f"min={d.min():.4f} max={d.max():.4f} ({time.time()-t0:.1f}s)")
     return devs
 
 
-def plot(devs, n_trials, n_graphs, out_path, engine="meanfield"):
+def plot(devs, n_trials, n_graphs, out_path, engine="meanfield", n_ratio=None):
     ks = sorted(devs.keys())
     mean = np.array([devs[k].mean() for k in ks])
     lo = np.array([devs[k].min() for k in ks])
@@ -158,12 +168,18 @@ def plot(devs, n_trials, n_graphs, out_path, engine="meanfield"):
     ax.set_xlabel("Cap Size")
     ax.set_ylabel("Error in Proportion")
     ax.set_ylim(0.0, max(hi.max(), 0.5) * 1.05)
-    ax.set_title(f"Fig. 5: error vs cap size  [{engine} engine]")
+    dens = f", n={n_ratio:g}k (const density)" if n_ratio else f", fixed n"
+    ax.set_title(f"Fig. 5: error vs cap size  [{engine}{dens}]")
     ax.legend(loc="upper right", fontsize=9, frameon=False)
     if engine == "meanfield":
         ax.text(0.5, 0.02,
                 "mean-field: error band near sampling floor; steep small-k\n"
-                "branch needs --engine sparse (nonlinear winner-take-all)",
+                "branch needs --engine sparse/torch (nonlinear winner-take-all)",
+                transform=ax.transAxes, fontsize=7, color="0.4", ha="center")
+    elif not n_ratio:
+        ax.text(0.5, 0.02,
+                "fixed n: error RISES with k (assemblies don't register at\n"
+                "small k). For the paper's decreasing curve add --n-ratio 50.",
                 transform=ax.transAxes, fontsize=7, color="0.4", ha="center")
     fig.tight_layout()
     fig.savefig(out_path, dpi=200)
@@ -186,33 +202,48 @@ def main():
     ap.add_argument("--rounds", type=int, default=20,
                     help="recurrent k-cap rounds (sparse/torch engines)")
     ap.add_argument("--n", type=int, default=nx.N_DEFAULT,
-                    help="neurons per area")
+                    help="neurons per area (used when --n-ratio is not set)")
+    ap.add_argument("--n-ratio", type=float, default=None,
+                    help="scale neurons with cap: n = n_ratio*k (paper n/k=50). "
+                         "Holds assembly density fixed -- the regime where Fig 5's "
+                         "decreasing curve appears.")
+    ap.add_argument("--ks", type=str, default=None,
+                    help="comma-separated cap sizes, e.g. 50,100,200,500,1000 "
+                         "(overrides the default sweep)")
     ap.add_argument("--validate", action="store_true",
-                    help="quick curve-direction check: k in {50,500,4000}, "
-                         "few graphs/trials, no plot")
+                    help="quick curve-direction check: 3 cap sizes, few "
+                         "graphs/trials, no plot")
     ap.add_argument("--out", default="figure_5.png")
     args = ap.parse_args()
+    ks_arg = [int(x) for x in args.ks.split(",")] if args.ks else None
 
     if args.validate:
-        ks = [50, 500, 4000]
+        # With a fixed ratio, large k blows up the dense matrix; pick cap sizes
+        # whose n stays within a ~24 GB GPU.
+        ks = ks_arg or ([50, 200, 1000] if args.n_ratio else [50, 500, 4000])
         ng = args.graphs if args.graphs != 20 else 4
         nt = args.trials if args.trials != 500 else 200
-        print(f"[2] VALIDATE: engine={args.engine}, n={args.n}, k in {ks}, "
+        ntag = f"n={args.n_ratio:g}*k" if args.n_ratio else f"n={args.n}"
+        print(f"[2] VALIDATE: engine={args.engine}, {ntag}, k in {ks}, "
               f"{ng} graphs, {nt} trials")
         devs = run(ks=ks, n=args.n, n_graphs=ng, n_trials=nt,
                    engine=args.engine, seed=args.seed, device=args.device,
-                   batch=args.batch, max_rounds=args.rounds)
-        means = [devs[k].mean() for k in ks]
-        trend = ("DECREASING (matches Fig 5)" if means[0] > means[-1] + 0.03
+                   batch=args.batch, max_rounds=args.rounds, n_ratio=args.n_ratio)
+        got = sorted(devs)
+        means = [devs[k].mean() for k in got]
+        trend = ("DECREASING (matches Fig 5)"
+                 if means[0] > means[-1] + 0.03
                  else "flat/increasing (does NOT match Fig 5)")
-        print(f"[2] mean|err|: k=50 -> {means[0]:.3f}, k=500 -> {means[1]:.3f}, "
-              f"k=4000 -> {means[2]:.3f}  => {trend}")
+        cells = ", ".join(f"k={k} -> {m:.3f}" for k, m in zip(got, means))
+        print(f"[2] mean|err|: {cells}  => {trend}")
         return
 
-    devs = run(ks=K_SWEEP, n=args.n, n_graphs=args.graphs, n_trials=args.trials,
-               engine=args.engine, seed=args.seed, device=args.device,
-               batch=args.batch, max_rounds=args.rounds)
-    plot(devs, args.trials, args.graphs, args.out, engine=args.engine)
+    devs = run(ks=ks_arg or K_SWEEP, n=args.n, n_graphs=args.graphs,
+               n_trials=args.trials, engine=args.engine, seed=args.seed,
+               device=args.device, batch=args.batch, max_rounds=args.rounds,
+               n_ratio=args.n_ratio)
+    plot(devs, args.trials, args.graphs, args.out, engine=args.engine,
+         n_ratio=args.n_ratio)
 
 
 if __name__ == "__main__":
