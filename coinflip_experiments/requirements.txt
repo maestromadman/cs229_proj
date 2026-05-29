@@ -1,0 +1,9 @@
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.6
+
+# Optional: GPU engine for the faithful Fig 5 run (experiment_2.py --engine torch).
+# On a cloud GPU instance (e.g. NVIDIA L4) you only need the NVIDIA driver that is
+# already installed -- the torch wheel bundles its own CUDA runtime, so a plain
+# `pip install torch` is enough (no separate CUDA toolkit setup).
+# torch>=2.1
