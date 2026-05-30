@@ -1,0 +1,7442 @@
+{
+  "seed": 0,
+  "python_hash_seed": 0,
+  "total_sentences": 180,
+  "correct": 180,
+  "accuracy": 1.0,
+  "wall_clock_seconds": 77.1,
+  "per_template": [
+    {
+      "template_id": 1,
+      "description": "N V-INTRANS",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 2,
+      "description": "N V N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 3,
+      "description": "D N V-INTRANS",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 4,
+      "description": "D N V N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 5,
+      "description": "D N V D N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 6,
+      "description": "ADJ N V N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 7,
+      "description": "D ADJ N D ADJ N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 8,
+      "description": "PRO V PRO",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 9,
+      "description": "N V-INTRANS ADVERB",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 10,
+      "description": "N ADVERB V-INTRANS",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 11,
+      "description": "N V-INTRANS ADVERB",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 12,
+      "description": "N ADVERB V N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 13,
+      "description": "N V-INTRANS PP",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 15,
+      "description": "N V N PP",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 16,
+      "description": "N PP V N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 17,
+      "description": "N COPULA N",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 18,
+      "description": "N COPULA ADJ",
+      "correct": 10,
+      "total": 10
+    },
+    {
+      "template_id": 19,
+      "description": "complex copula",
+      "correct": 10,
+      "total": 10
+    }
+  ],
+  "per_sentence": [
+    {
+      "sentence": "dogs run",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats fly",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice run",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "people fly",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs fly",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats run",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "cats",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "cats",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice fly",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "mice",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "people run",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "man run",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "woman fly",
+      "template_id": 1,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase cats",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats chase mice",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice love dogs",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "people bite cats",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "cats",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs love mice",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats bite people",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "people",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "people",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice saw dogs",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "people saw mice",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs saw people",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats love dogs",
+      "template_id": 2,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs run",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats fly",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man run",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman fly",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice run",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people fly",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man fly",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman run",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man run",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman fly",
+      "template_id": 3,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs chase cats",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man saw woman",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase the cats",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people love a man",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "man",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "man",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats love mice",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman bite man",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice love the dogs",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats bite a woman",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people saw man",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs saw a man",
+      "template_id": 4,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man saw the woman",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs chase the cats",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man love a woman",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats love the mice",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman saw a man",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people chase the dogs",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a dogs bite a cats",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "dogs",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "a",
+          "DET"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice love the dogs",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a cats saw a mice",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman bite the man",
+      "template_id": 5,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "big dogs chase cats",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad cats love mice",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "big man saw woman",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad woman bite man",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase big cats",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "big",
+          "ADJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats love bad mice",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "man saw big woman",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice bite bad dogs",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "big people saw cats",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "people love bad dogs",
+      "template_id": 6,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big man saw the bad woman",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad man bite a big woman",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big dogs chase the bad cats",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad cats love a big mice",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big people saw the bad dogs",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big man love a bad woman",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad woman bite the big man",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big mice chase a bad cats",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad dogs love the big cats",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "big",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "big",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big people saw a bad mice",
+      "template_id": 7,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "people",
+          "a",
+          "DET"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "man saw woman",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "woman saw man",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs love mice",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats bite people",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "people",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "people",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "people saw dogs",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice chase cats",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "man bite woman",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "woman love man",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "man",
+          "OBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "man",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase people",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "people",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "people",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats love mice",
+      "template_id": 8,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs run quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats fly quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice run quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man fly quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people fly quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman run quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice run quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs fly quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman fly quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people run quickly",
+      "template_id": 9,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs quickly run",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats quickly fly",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice quickly run",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man quickly fly",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people quickly fly",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman quickly run",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice quickly run",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs quickly fly",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman quickly fly",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people quickly run",
+      "template_id": 10,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "big dogs run quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad cats fly quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big mice run quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad man fly quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "big people fly quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad woman run quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad mice run quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big dogs fly quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big woman fly quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad people run quickly",
+      "template_id": 11,
+      "correct": true,
+      "expected_deps": [
+        [
+          "people",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "people",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs quickly chase cats",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats quickly love mice",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man quickly saw the woman",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman quickly bite a man",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice quickly bite dogs",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "people quickly love cats",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs quickly saw the cats",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man quickly love a woman",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats quickly chase mice",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people quickly love dogs",
+      "template_id": 12,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs run in cats",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats fly in mice",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice run of dogs",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man fly in woman",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "in",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people run in cats",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman fly of man",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice run of dogs",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs fly in cats",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman fly of man",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people run of mice",
+      "template_id": 13,
+      "correct": true,
+      "expected_deps": [
+        [
+          "mice",
+          "of",
+          "PREP"
+        ],
+        [
+          "run",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase cats of mice",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats love mice of dogs",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man saw the woman of dogs",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman bite a man of mice",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people saw cats of dogs",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice love the dogs of cats",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "of",
+          "PREP"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats bite mice of people",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "people",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "people",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man love a woman of mice",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "mice",
+          "PREP_P"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase the cats of dogs",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people love cats of dogs",
+      "template_id": 15,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs in cats chase mice",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man of woman saw dogs",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats in mice love dogs",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man of woman saw cats",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice in dogs love cats",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "in",
+          "PREP"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people of cats saw dogs",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "of",
+          "PREP"
+        ],
+        [
+          "people",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "people",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs in cats chase mice",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "cats",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman of man bite dogs",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "man",
+          "PREP_P"
+        ]
+      ],
+      "got_deps": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats of people love mice",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "cats",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "people",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got_deps": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "people",
+          "of",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs in mice saw cats",
+      "template_id": 16,
+      "correct": true,
+      "expected_deps": [
+        [
+          "dogs",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs are cats",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "cats",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs are mice",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man are woman",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats are dogs",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "OBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice are people",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "people",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "people",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman are man",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "man",
+          "OBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people are dogs",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "OBJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man are woman",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats are the mice",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs are a cats",
+      "template_id": 17,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs are big",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats are bad",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs are big",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man are bad",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people are big",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice are bad",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats are big",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman are bad",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man are big",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice are big",
+      "template_id": 18,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "big dogs are bad",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad cats are big",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big mice are bad",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad man are big",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "big people are bad",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad woman are big",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad mice are big",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big dogs are bad",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big woman are bad",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "bad people are big",
+      "template_id": 19,
+      "correct": true,
+      "expected_deps": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "people",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got_deps": [
+        [
+          "are",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "bad",
+          "ADJ"
+        ]
+      ]
+    }
+  ],
+  "excluded_templates": [
+    {
+      "template_id": 14,
+      "description": "N V-INTRANS PP PP",
+      "reason": "Requires unimplemented COMP-style chained-modifier extension (Paper Section 6, 'big bad problem'). Not addressable by n/k allocation."
+    },
+    {
+      "template_id": 20,
+      "description": "chained adjectives",
+      "reason": "Requires unimplemented COMP-style chained-modifier extension (Paper Section 6, 'big bad problem'). Not addressable by n/k allocation."
+    }
+  ]
+}

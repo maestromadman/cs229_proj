@@ -1,0 +1,50 @@
+[10/200] elapsed=2s
+[20/200] elapsed=5s
+[30/200] elapsed=8s
+[40/200] elapsed=12s
+[50/200] elapsed=16s
+[60/200] elapsed=20s
+[70/200] elapsed=27s
+[80/200] elapsed=31s
+[90/200] elapsed=34s
+[100/200] elapsed=38s
+[110/200] elapsed=43s
+[120/200] elapsed=48s
+[130/200] elapsed=53s
+[140/200] elapsed=60s
+[150/200] elapsed=66s
+[160/200] elapsed=70s
+[170/200] elapsed=73s
+[180/200] elapsed=78s
+
+Total sentences: 180
+Correct parses:  180
+Accuracy:        100.0%
+
+Results by template:
+  Template 1  (N V-INTRANS):               10/10
+  Template 2  (N V N):                     10/10
+  Template 3  (D N V-INTRANS):             10/10
+  Template 4  (D N V N):                   10/10
+  Template 5  (D N V D N):                 10/10
+  Template 6  (ADJ N V N):                 10/10
+  Template 7  (D ADJ N D ADJ N):           10/10
+  Template 8  (PRO V PRO):                 10/10
+  Template 9  (N V-INTRANS ADVERB):        10/10
+  Template 10 (N ADVERB V-INTRANS):        10/10
+  Template 11 (N V-INTRANS ADVERB):        10/10
+  Template 12 (N ADVERB V N):              10/10
+  Template 13 (N V-INTRANS PP):            10/10
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED (requires unimplemented COMP-extension)
+  Template 15 (N V N PP):                  10/10
+  Template 16 (N PP V N):                  10/10
+  Template 17 (N COPULA N):                10/10
+  Template 18 (N COPULA ADJ):              10/10
+  Template 19 (complex copula):            10/10
+  Template 20 (chained adjectives):        EXCLUDED (requires unimplemented COMP-extension)
+
+Failed sentences: none
+
+Wall-clock: 78.3s
+
+Wrote /Users/ajaymallya/Desktop/github/cs229_proj/parser_reproduced/results_reproduced/baseline_parser_reproduction.json

@@ -1,0 +1,244 @@
+
+=== Running seed 0 ===
+  [seed=0] 30/180 elapsed=8s
+  [seed=0] 60/180 elapsed=20s
+  [seed=0] 90/180 elapsed=33s
+  [seed=0] 120/180 elapsed=47s
+  [seed=0] 150/180 elapsed=64s
+  [seed=0] 180/180 elapsed=76s
+
+Seed: 0  (PYTHONHASHSEED=0)
+Total sentences: 180
+Correct parses:  180
+Accuracy:        100.0%
+
+Results by template:
+  Template 1  (N V-INTRANS):               10/10
+  Template 2  (N V N):                     10/10
+  Template 3  (D N V-INTRANS):             10/10
+  Template 4  (D N V N):                   10/10
+  Template 5  (D N V D N):                 10/10
+  Template 6  (ADJ N V N):                 10/10
+  Template 7  (D ADJ N D ADJ N):           10/10
+  Template 8  (PRO V PRO):                 10/10
+  Template 9  (N V-INTRANS ADVERB):        10/10
+  Template 10 (N ADVERB V-INTRANS):        10/10
+  Template 11 (N V-INTRANS ADVERB):        10/10
+  Template 12 (N ADVERB V N):              10/10
+  Template 13 (N V-INTRANS PP):            10/10
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED (requires unimplemented COMP-extension)
+  Template 15 (N V N PP):                  10/10
+  Template 16 (N PP V N):                  10/10
+  Template 17 (N COPULA N):                10/10
+  Template 18 (N COPULA ADJ):              10/10
+  Template 19 (complex copula):            10/10
+  Template 20 (chained adjectives):        EXCLUDED (requires unimplemented COMP-extension)
+
+Failed sentences: none
+
+Wall-clock: 76.3s
+
+=== Running seed 1 ===
+  [seed=1] 30/180 elapsed=8s
+  [seed=1] 60/180 elapsed=20s
+  [seed=1] 90/180 elapsed=34s
+  [seed=1] 120/180 elapsed=48s
+  [seed=1] 150/180 elapsed=66s
+  [seed=1] 180/180 elapsed=78s
+
+Seed: 1  (PYTHONHASHSEED=0)
+Total sentences: 180
+Correct parses:  180
+Accuracy:        100.0%
+
+Results by template:
+  Template 1  (N V-INTRANS):               10/10
+  Template 2  (N V N):                     10/10
+  Template 3  (D N V-INTRANS):             10/10
+  Template 4  (D N V N):                   10/10
+  Template 5  (D N V D N):                 10/10
+  Template 6  (ADJ N V N):                 10/10
+  Template 7  (D ADJ N D ADJ N):           10/10
+  Template 8  (PRO V PRO):                 10/10
+  Template 9  (N V-INTRANS ADVERB):        10/10
+  Template 10 (N ADVERB V-INTRANS):        10/10
+  Template 11 (N V-INTRANS ADVERB):        10/10
+  Template 12 (N ADVERB V N):              10/10
+  Template 13 (N V-INTRANS PP):            10/10
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED (requires unimplemented COMP-extension)
+  Template 15 (N V N PP):                  10/10
+  Template 16 (N PP V N):                  10/10
+  Template 17 (N COPULA N):                10/10
+  Template 18 (N COPULA ADJ):              10/10
+  Template 19 (complex copula):            10/10
+  Template 20 (chained adjectives):        EXCLUDED (requires unimplemented COMP-extension)
+
+Failed sentences: none
+
+Wall-clock: 77.7s
+
+=== Running seed 2 ===
+  [seed=2] 30/180 elapsed=8s
+  [seed=2] 60/180 elapsed=21s
+  [seed=2] 90/180 elapsed=35s
+  [seed=2] 120/180 elapsed=49s
+  [seed=2] 150/180 elapsed=67s
+  [seed=2] 180/180 elapsed=78s
+
+Seed: 2  (PYTHONHASHSEED=0)
+Total sentences: 180
+Correct parses:  180
+Accuracy:        100.0%
+
+Results by template:
+  Template 1  (N V-INTRANS):               10/10
+  Template 2  (N V N):                     10/10
+  Template 3  (D N V-INTRANS):             10/10
+  Template 4  (D N V N):                   10/10
+  Template 5  (D N V D N):                 10/10
+  Template 6  (ADJ N V N):                 10/10
+  Template 7  (D ADJ N D ADJ N):           10/10
+  Template 8  (PRO V PRO):                 10/10
+  Template 9  (N V-INTRANS ADVERB):        10/10
+  Template 10 (N ADVERB V-INTRANS):        10/10
+  Template 11 (N V-INTRANS ADVERB):        10/10
+  Template 12 (N ADVERB V N):              10/10
+  Template 13 (N V-INTRANS PP):            10/10
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED (requires unimplemented COMP-extension)
+  Template 15 (N V N PP):                  10/10
+  Template 16 (N PP V N):                  10/10
+  Template 17 (N COPULA N):                10/10
+  Template 18 (N COPULA ADJ):              10/10
+  Template 19 (complex copula):            10/10
+  Template 20 (chained adjectives):        EXCLUDED (requires unimplemented COMP-extension)
+
+Failed sentences: none
+
+Wall-clock: 78.5s
+
+=== Running seed 3 ===
+  [seed=3] 30/180 elapsed=8s
+  [seed=3] 60/180 elapsed=21s
+  [seed=3] 90/180 elapsed=35s
+  [seed=3] 120/180 elapsed=49s
+  [seed=3] 150/180 elapsed=67s
+  [seed=3] 180/180 elapsed=79s
+
+Seed: 3  (PYTHONHASHSEED=0)
+Total sentences: 180
+Correct parses:  178
+Accuracy:        98.9%
+
+Results by template:
+  Template 1  (N V-INTRANS):               10/10
+  Template 2  (N V N):                     10/10
+  Template 3  (D N V-INTRANS):             10/10
+  Template 4  (D N V N):                   10/10
+  Template 5  (D N V D N):                 9/10
+  Template 6  (ADJ N V N):                 10/10
+  Template 7  (D ADJ N D ADJ N):           10/10
+  Template 8  (PRO V PRO):                 10/10
+  Template 9  (N V-INTRANS ADVERB):        10/10
+  Template 10 (N ADVERB V-INTRANS):        10/10
+  Template 11 (N V-INTRANS ADVERB):        10/10
+  Template 12 (N ADVERB V N):              10/10
+  Template 13 (N V-INTRANS PP):            10/10
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED (requires unimplemented COMP-extension)
+  Template 15 (N V N PP):                  10/10
+  Template 16 (N PP V N):                  10/10
+  Template 17 (N COPULA N):                10/10
+  Template 18 (N COPULA ADJ):              10/10
+  Template 19 (complex copula):            9/10
+  Template 20 (chained adjectives):        EXCLUDED (requires unimplemented COMP-extension)
+
+Failed sentences (2):
+  - "a dogs bite a cats"
+      missing: [('cats', 'a', 'DET'), ('dogs', 'a', 'DET')]
+      extra:   [('cats', '<NON-WORD>', 'DET'), ('dogs', '<NON-WORD>', 'DET')]
+  - "a big woman are bad"
+      missing: [('woman', 'a', 'DET')]
+      extra:   [('woman', '<NON-WORD>', 'DET')]
+
+Wall-clock: 78.9s
+
+=== Running seed 4 ===
+  [seed=4] 30/180 elapsed=7s
+  [seed=4] 60/180 elapsed=19s
+  [seed=4] 90/180 elapsed=33s
+  [seed=4] 120/180 elapsed=46s
+  [seed=4] 150/180 elapsed=64s
+  [seed=4] 180/180 elapsed=75s
+
+Seed: 4  (PYTHONHASHSEED=0)
+Total sentences: 180
+Correct parses:  179
+Accuracy:        99.4%
+
+Results by template:
+  Template 1  (N V-INTRANS):               10/10
+  Template 2  (N V N):                     10/10
+  Template 3  (D N V-INTRANS):             10/10
+  Template 4  (D N V N):                   10/10
+  Template 5  (D N V D N):                 9/10
+  Template 6  (ADJ N V N):                 10/10
+  Template 7  (D ADJ N D ADJ N):           10/10
+  Template 8  (PRO V PRO):                 10/10
+  Template 9  (N V-INTRANS ADVERB):        10/10
+  Template 10 (N ADVERB V-INTRANS):        10/10
+  Template 11 (N V-INTRANS ADVERB):        10/10
+  Template 12 (N ADVERB V N):              10/10
+  Template 13 (N V-INTRANS PP):            10/10
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED (requires unimplemented COMP-extension)
+  Template 15 (N V N PP):                  10/10
+  Template 16 (N PP V N):                  10/10
+  Template 17 (N COPULA N):                10/10
+  Template 18 (N COPULA ADJ):              10/10
+  Template 19 (complex copula):            10/10
+  Template 20 (chained adjectives):        EXCLUDED (requires unimplemented COMP-extension)
+
+Failed sentences (1):
+  - "the man saw the woman"
+      missing: [('man', 'the', 'DET'), ('woman', 'the', 'DET')]
+      extra:   [('man', '<NON-WORD>', 'DET'), ('woman', '<NON-WORD>', 'DET')]
+
+Wall-clock: 74.8s
+
+============================================================
+Multi-seed summary
+============================================================
+PYTHONHASHSEED:    0 (pinned)
+Seeds run:         [0, 1, 2, 3, 4]
+Sentences / seed:  180
+Correct (mean):    179.40 +/- 0.89
+Accuracy (mean):   99.67% +/- 0.50%
+
+Per-seed:
+  seed=0     180/180  (100.0%)  76s
+  seed=1     180/180  (100.0%)  78s
+  seed=2     180/180  (100.0%)  78s
+  seed=3     178/180  (98.9%)  79s
+  seed=4     179/180  (99.4%)  75s
+
+Per-template accuracy (mean +/- std across seeds):
+  Template 1  (N V-INTRANS):               10.00/10 +/- 0.00
+  Template 2  (N V N):                     10.00/10 +/- 0.00
+  Template 3  (D N V-INTRANS):             10.00/10 +/- 0.00
+  Template 4  (D N V N):                   10.00/10 +/- 0.00
+  Template 5  (D N V D N):                 9.60/10 +/- 0.55
+  Template 6  (ADJ N V N):                 10.00/10 +/- 0.00
+  Template 7  (D ADJ N D ADJ N):           10.00/10 +/- 0.00
+  Template 8  (PRO V PRO):                 10.00/10 +/- 0.00
+  Template 9  (N V-INTRANS ADVERB):        10.00/10 +/- 0.00
+  Template 10 (N ADVERB V-INTRANS):        10.00/10 +/- 0.00
+  Template 11 (N V-INTRANS ADVERB):        10.00/10 +/- 0.00
+  Template 12 (N ADVERB V N):              10.00/10 +/- 0.00
+  Template 13 (N V-INTRANS PP):            10.00/10 +/- 0.00
+  Template 14 (N V-INTRANS PP PP):         EXCLUDED
+  Template 15 (N V N PP):                  10.00/10 +/- 0.00
+  Template 16 (N PP V N):                  10.00/10 +/- 0.00
+  Template 17 (N COPULA N):                10.00/10 +/- 0.00
+  Template 18 (N COPULA ADJ):              10.00/10 +/- 0.00
+  Template 19 (complex copula):            9.80/10 +/- 0.45
+  Template 20 (chained adjectives):        EXCLUDED
+
+Wrote /Users/ajaymallya/Desktop/github/cs229_proj/parser_reproduced/results_reproduced/baseline_parser_reproduction_multiseed.json
