@@ -1,0 +1,554 @@
+Configs to run: ['baseline', 'experiment_A_verb_enlarged', 'experiment_B_closed_class_shrunk', 'experiment_C_proportional', 'experiment_D_inverted']
+PYTHONHASHSEED: 0; brain seed: 0; workers: 8
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results
+
+=== FULL :: 180 sentences (18 templates) x 5 configs ===
+
+--- Running baseline (baseline) ---
+  [baseline] 20/180 correct=20 elapsed=91s (8 workers)
+  [baseline] 40/180 correct=40 elapsed=216s (8 workers)
+  [baseline] 60/180 correct=60 elapsed=396s (8 workers)
+  [baseline] 80/180 correct=80 elapsed=593s (8 workers)
+  [baseline] 100/180 correct=100 elapsed=735s (8 workers)
+  [baseline] 120/180 correct=120 elapsed=894s (8 workers)
+  [baseline] 140/180 correct=140 elapsed=1087s (8 workers)
+  [baseline] 160/180 correct=160 elapsed=1244s (8 workers)
+  [baseline] 180/180 correct=180 elapsed=1392s (8 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/baseline_full.json
+
+--- Running experiment_A_verb_enlarged (exp_A_verb_enlarged) ---
+  [experiment_A_verb_enlarged] 20/180 correct=20 elapsed=114s (8 workers)
+  [experiment_A_verb_enlarged] 40/180 correct=40 elapsed=245s (8 workers)
+  [experiment_A_verb_enlarged] 60/180 correct=60 elapsed=454s (8 workers)
+Process SpawnPoolWorker-9:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-12:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-16:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-15:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-10:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-14:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-13:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-11:
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+/Users/ajaymallya/miniconda3/lib/python3.13/multiprocessing/resource_tracker.py:400: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown: {'/mp-6tdndj04', '/mp-33akasd4', '/mp-ip7c9yrj', '/mp-0sg6s_eb', '/mp-64xy24aj', '/mp-4xaxgdt6'}
+  warnings.warn(
+
+==============================================
+RESUMING -- running A, B, C, D each in its own subprocess, workers=4
+==============================================
+
+### Sat May 30 19:17:37 PDT 2026 :: starting experiment_A_verb_enlarged ###
+Configs to run: ['experiment_A_verb_enlarged']
+PYTHONHASHSEED: 0; brain seed: 0; workers: 4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results
+
+=== FULL :: 180 sentences (18 templates) x 1 configs ===
+
+--- Running experiment_A_verb_enlarged (exp_A_verb_enlarged) ---
+  [experiment_A_verb_enlarged] 20/180 correct=20 elapsed=89s (4 workers)
+  [experiment_A_verb_enlarged] 40/180 correct=40 elapsed=211s (4 workers)
+  [experiment_A_verb_enlarged] 60/180 correct=60 elapsed=347s (4 workers)
+  [experiment_A_verb_enlarged] 80/180 correct=80 elapsed=502s (4 workers)
+  [experiment_A_verb_enlarged] 100/180 correct=100 elapsed=653s (4 workers)
+  [experiment_A_verb_enlarged] 120/180 correct=120 elapsed=848s (4 workers)
+  [experiment_A_verb_enlarged] 140/180 correct=140 elapsed=1053s (4 workers)
+  [experiment_A_verb_enlarged] 160/180 correct=160 elapsed=1217s (4 workers)
+  [experiment_A_verb_enlarged] 180/180 correct=180 elapsed=1351s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/experiment_A_verb_enlarged_full.json
+
+FULL RESULTS (180 sentences per config)
+======================================================================
+
+Config                        Accuracy   Rds/word  Rds/word(std)
+----------------------------------------------------------------------
+exp_A_verb_enlarged             100.0%       9.05           2.31
+
+Per-area convergence rounds (mean) -- FULL:
+Area       exp_A_verb_enlarged
+------------------------------
+VERB                      6.67
+SUBJ                      5.18
+OBJ                       9.80
+DET                       4.82
+ADJ                       5.12
+ADV                       5.92
+PREP                      4.27
+PREPP                    10.07
+
+Accuracy by template complexity -- FULL:
+Complexity     exp_A_verb_enlarged
+----------------------------------
+simple              100.0% (70/70)
+medium              100.0% (70/70)
+complex             100.0% (40/40)
+
+### Sat May 30 19:40:09 PDT 2026 :: experiment_A_verb_enlarged finished with exit code 0 ###
+
+### Sat May 30 19:40:09 PDT 2026 :: starting experiment_B_closed_class_shrunk ###
+Configs to run: ['experiment_B_closed_class_shrunk']
+PYTHONHASHSEED: 0; brain seed: 0; workers: 4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results
+
+=== FULL :: 180 sentences (18 templates) x 1 configs ===
+
+--- Running experiment_B_closed_class_shrunk (exp_B_closed_shrunk) ---
+  [experiment_B_closed_class_shrunk] 20/180 correct=20 elapsed=76s (4 workers)
+  [experiment_B_closed_class_shrunk] 40/180 correct=40 elapsed=184s (4 workers)
+  [experiment_B_closed_class_shrunk] 60/180 correct=60 elapsed=320s (4 workers)
+  [experiment_B_closed_class_shrunk] 80/180 correct=80 elapsed=513s (4 workers)
+  [experiment_B_closed_class_shrunk] 100/180 correct=100 elapsed=645s (4 workers)
+  [experiment_B_closed_class_shrunk] 120/180 correct=120 elapsed=801s (4 workers)
+  [experiment_B_closed_class_shrunk] 140/180 correct=140 elapsed=980s (4 workers)
+  [experiment_B_closed_class_shrunk] 160/180 correct=160 elapsed=1155s (4 workers)
+  [experiment_B_closed_class_shrunk] 180/180 correct=180 elapsed=1290s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/experiment_B_closed_class_shrunk_full.json
+
+FULL RESULTS (180 sentences per config)
+======================================================================
+
+Config                        Accuracy   Rds/word  Rds/word(std)
+----------------------------------------------------------------------
+exp_B_closed_shrunk             100.0%       7.97           2.56
+
+Per-area convergence rounds (mean) -- FULL:
+Area       exp_B_closed_shrunk
+------------------------------
+VERB                      6.07
+SUBJ                      5.02
+OBJ                       9.60
+DET                       2.92
+ADJ                       4.96
+ADV                       6.00
+PREP                      3.58
+PREPP                     9.60
+
+Accuracy by template complexity -- FULL:
+Complexity     exp_B_closed_shrunk
+----------------------------------
+simple              100.0% (70/70)
+medium              100.0% (70/70)
+complex             100.0% (40/40)
+
+### Sat May 30 20:01:40 PDT 2026 :: experiment_B_closed_class_shrunk finished with exit code 0 ###
+
+### Sat May 30 20:01:40 PDT 2026 :: starting experiment_C_proportional ###
+Configs to run: ['experiment_C_proportional']
+PYTHONHASHSEED: 0; brain seed: 0; workers: 4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results
+
+=== FULL :: 180 sentences (18 templates) x 1 configs ===
+
+--- Running experiment_C_proportional (exp_C_proportional) ---
+  [experiment_C_proportional] 20/180 correct=20 elapsed=96s (4 workers)
+  [experiment_C_proportional] 40/180 correct=40 elapsed=223s (4 workers)
+  [experiment_C_proportional] 60/180 correct=60 elapsed=392s (4 workers)
+  [experiment_C_proportional] 80/180 correct=80 elapsed=588s (4 workers)
+  [experiment_C_proportional] 100/180 correct=100 elapsed=722s (4 workers)
+  [experiment_C_proportional] 120/180 correct=120 elapsed=890s (4 workers)
+  [experiment_C_proportional] 140/180 correct=140 elapsed=1101s (4 workers)
+  [experiment_C_proportional] 160/180 correct=160 elapsed=1280s (4 workers)
+  [experiment_C_proportional] 180/180 correct=180 elapsed=1419s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/experiment_C_proportional_full.json
+
+FULL RESULTS (180 sentences per config)
+======================================================================
+
+Config                        Accuracy   Rds/word  Rds/word(std)
+----------------------------------------------------------------------
+exp_C_proportional              100.0%       9.74           3.67
+
+Per-area convergence rounds (mean) -- FULL:
+Area        exp_C_proportional
+------------------------------
+VERB                      6.38
+SUBJ                      6.98
+OBJ                      10.26
+DET                       4.67
+ADJ                       4.75
+ADV                       5.75
+PREP                      3.95
+PREPP                    10.47
+
+Accuracy by template complexity -- FULL:
+Complexity      exp_C_proportional
+----------------------------------
+simple              100.0% (70/70)
+medium              100.0% (70/70)
+complex             100.0% (40/40)
+
+### Sat May 30 20:25:20 PDT 2026 :: experiment_C_proportional finished with exit code 0 ###
+
+### Sat May 30 20:25:20 PDT 2026 :: starting experiment_D_inverted ###
+Configs to run: ['experiment_D_inverted']
+PYTHONHASHSEED: 0; brain seed: 0; workers: 4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results
+
+=== FULL :: 180 sentences (18 templates) x 1 configs ===
+
+--- Running experiment_D_inverted (exp_D_inverted) ---
+  [experiment_D_inverted] 20/180 correct=20 elapsed=108s (4 workers)
+  [experiment_D_inverted] 40/180 correct=40 elapsed=244s (4 workers)
+  [experiment_D_inverted] 60/180 correct=60 elapsed=422s (4 workers)
+  [experiment_D_inverted] 80/180 correct=80 elapsed=629s (4 workers)
+  [experiment_D_inverted] 100/180 correct=100 elapsed=788s (4 workers)
+  [experiment_D_inverted] 120/180 correct=120 elapsed=975s (4 workers)
+  [experiment_D_inverted] 140/180 correct=140 elapsed=1192s (4 workers)
+  [experiment_D_inverted] 160/180 correct=160 elapsed=1383s (4 workers)
+  [experiment_D_inverted] 180/180 correct=180 elapsed=1538s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/experiment_D_inverted_full.json
+
+FULL RESULTS (180 sentences per config)
+======================================================================
+
+Config                        Accuracy   Rds/word  Rds/word(std)
+----------------------------------------------------------------------
+exp_D_inverted                  100.0%      10.24           4.58
+
+Per-area convergence rounds (mean) -- FULL:
+Area            exp_D_inverted
+------------------------------
+VERB                      5.58
+SUBJ                      4.51
+OBJ                      10.06
+DET                      11.00
+ADJ                       5.04
+ADV                       5.92
+PREP                      4.50
+PREPP                    10.30
+
+Accuracy by template complexity -- FULL:
+Complexity          exp_D_inverted
+----------------------------------
+simple              100.0% (70/70)
+medium              100.0% (70/70)
+complex             100.0% (40/40)
+
+### Sat May 30 20:51:00 PDT 2026 :: experiment_D_inverted finished with exit code 0 ###
+
+### ALL DONE :: Sat May 30 20:51:00 PDT 2026 ###

@@ -1,0 +1,263 @@
+{
+  "config_name": "baseline",
+  "area_config": {
+    "LEX": {
+      "n": 10000,
+      "k": 100
+    },
+    "VERB": {
+      "n": 10000,
+      "k": 100
+    },
+    "SUBJ": {
+      "n": 10000,
+      "k": 100
+    },
+    "OBJ": {
+      "n": 10000,
+      "k": 100
+    },
+    "DET": {
+      "n": 10000,
+      "k": 100
+    },
+    "ADJ": {
+      "n": 10000,
+      "k": 100
+    },
+    "ADV": {
+      "n": 10000,
+      "k": 100
+    },
+    "PREP": {
+      "n": 10000,
+      "k": 100
+    },
+    "PREPP": {
+      "n": 10000,
+      "k": 100
+    }
+  },
+  "overall": {
+    "accuracy": 1.0,
+    "total_correct": 180,
+    "total_sentences": 180,
+    "mean_rounds_per_word": 8.746,
+    "std_rounds_per_word": 2.064,
+    "mean_rounds_per_sentence": 36.394,
+    "std_rounds_per_sentence": 12.423
+  },
+  "by_template": [
+    {
+      "template_id": 1,
+      "description": "N V-INTRANS",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 7.5
+    },
+    {
+      "template_id": 2,
+      "description": "N V N",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.333
+    },
+    {
+      "template_id": 3,
+      "description": "D N V-INTRANS",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 9.333
+    },
+    {
+      "template_id": 4,
+      "description": "D N V N",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 9.375
+    },
+    {
+      "template_id": 5,
+      "description": "D N V D N",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.6
+    },
+    {
+      "template_id": 6,
+      "description": "ADJ N V N",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.125
+    },
+    {
+      "template_id": 7,
+      "description": "D ADJ N D ADJ N",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 9.286
+    },
+    {
+      "template_id": 8,
+      "description": "PRO V PRO",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.333
+    },
+    {
+      "template_id": 9,
+      "description": "N V-INTRANS ADVERB",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.714
+    },
+    {
+      "template_id": 10,
+      "description": "N ADVERB V-INTRANS",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.429
+    },
+    {
+      "template_id": 11,
+      "description": "N V-INTRANS ADVERB",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 9.444
+    },
+    {
+      "template_id": 12,
+      "description": "N ADVERB V N",
+      "complexity": "complex",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.347
+    },
+    {
+      "template_id": 13,
+      "description": "N V-INTRANS PP",
+      "complexity": "complex",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.333
+    },
+    {
+      "template_id": 15,
+      "description": "N V N PP",
+      "complexity": "complex",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.441
+    },
+    {
+      "template_id": 16,
+      "description": "N PP V N",
+      "complexity": "complex",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.667
+    },
+    {
+      "template_id": 17,
+      "description": "N COPULA N",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 9.081
+    },
+    {
+      "template_id": 18,
+      "description": "N COPULA ADJ",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.857
+    },
+    {
+      "template_id": 19,
+      "description": "complex copula",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 9.333
+    }
+  ],
+  "by_area": {
+    "ADJ": {
+      "mean_rounds_to_stabilize": 5.208,
+      "std_rounds_to_stabilize": 2.913,
+      "n_observations": 120
+    },
+    "ADV": {
+      "mean_rounds_to_stabilize": 6,
+      "std_rounds_to_stabilize": 3.135,
+      "n_observations": 60
+    },
+    "DET": {
+      "mean_rounds_to_stabilize": 4.933,
+      "std_rounds_to_stabilize": 3.292,
+      "n_observations": 238
+    },
+    "LEX": {
+      "mean_rounds_to_stabilize": 2,
+      "std_rounds_to_stabilize": 0.0,
+      "n_observations": 749
+    },
+    "OBJ": {
+      "mean_rounds_to_stabilize": 9.773,
+      "std_rounds_to_stabilize": 2.895,
+      "n_observations": 110
+    },
+    "PREP": {
+      "mean_rounds_to_stabilize": 4.283,
+      "std_rounds_to_stabilize": 2.33,
+      "n_observations": 60
+    },
+    "PREPP": {
+      "mean_rounds_to_stabilize": 9.567,
+      "std_rounds_to_stabilize": 0.728,
+      "n_observations": 30
+    },
+    "SUBJ": {
+      "mean_rounds_to_stabilize": 5.181,
+      "std_rounds_to_stabilize": 3.759,
+      "n_observations": 370
+    },
+    "VERB": {
+      "mean_rounds_to_stabilize": 5.924,
+      "std_rounds_to_stabilize": 3.746,
+      "n_observations": 340
+    }
+  },
+  "failed_sentences": [],
+  "wall_clock_seconds": 1392.5
+}

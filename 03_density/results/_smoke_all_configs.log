@@ -1,0 +1,9 @@
+Configs to run: ['baseline', 'experiment_A_verb_enlarged', 'experiment_B_closed_class_shrunk', 'experiment_C_proportional', 'experiment_D_inverted']
+PYTHONHASHSEED: 0; brain seed: 0
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results
+limit_per_template = 1
+
+=== ROUND1 :: 6 sentences (6 templates) x 5 configs ===
+
+--- Running baseline (baseline) ---
+  [baseline] 6/6 correct=6 elapsed=83s
