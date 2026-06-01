@@ -38,16 +38,22 @@ OUT_DIR = os.path.join(HERE, "results")
 
 # Top-to-bottom in the heatmap, left-to-right in the line plot.
 VARIANTS = ["baseline", "B_original", "B_2", "B_3", "B_4"]
-ROUNDS = [20, 5]
+ROUNDS = [20, 15, 10, 5]
 
 # Color per round budget (consistent across figures so the reader can
-# track which line is which).
+# track which line is which). Sequential ordering: rounds=20 (most
+# budget) -> rounds=5 (least). Blue -> teal -> purple -> red, all
+# colorblind-distinguishable.
 ROUND_COLORS = {
     20: "#1f77b4",  # tab:blue
+    15: "#17becf",  # tab:teal
+    10: "#9467bd",  # tab:purple
     5:  "#d62728",  # tab:red
 }
 ROUND_MARKERS = {
     20: "o",
+    15: "D",
+    10: "^",
     5:  "s",
 }
 

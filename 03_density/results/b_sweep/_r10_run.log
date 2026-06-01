@@ -33,3 +33,64 @@ Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_swe
   [B_original_r10] 80/180 correct=80 elapsed=294s (4 workers)
   [B_original_r10] 100/180 correct=100 elapsed=370s (4 workers)
   [B_original_r10] 120/180 correct=120 elapsed=459s (4 workers)
+  [B_original_r10] 140/180 correct=140 elapsed=563s (4 workers)
+  [B_original_r10] 160/180 correct=160 elapsed=660s (4 workers)
+  [B_original_r10] 180/180 correct=180 elapsed=733s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep/b_sweep_B_original_r10.json
+### Sun May 31 17:11:20 PDT 2026 :: B_original_r10 finished with exit 0 ###
+
+### Sun May 31 17:11:20 PDT 2026 :: starting B_2_r10 ###
+B-sweep: 1 cell(s), 180 sentences each
+PYTHONHASHSEED=0; seed=0; workers=4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep
+
+--- B_2 (DET/PREP=2000/20), project_rounds=10 ---
+  [B_2_r10] 20/180 correct=20 elapsed=56s (4 workers)
+  [B_2_r10] 40/180 correct=20 elapsed=127s (4 workers)
+  [B_2_r10] 60/180 correct=40 elapsed=202s (4 workers)
+  [B_2_r10] 80/180 correct=60 elapsed=284s (4 workers)
+  [B_2_r10] 100/180 correct=70 elapsed=350s (4 workers)
+  [B_2_r10] 120/180 correct=84 elapsed=431s (4 workers)
+  [B_2_r10] 140/180 correct=96 elapsed=520s (4 workers)
+  [B_2_r10] 160/180 correct=105 elapsed=600s (4 workers)
+  [B_2_r10] 180/180 correct=115 elapsed=668s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep/b_sweep_B_2_r10.json
+### Sun May 31 17:22:30 PDT 2026 :: B_2_r10 finished with exit 0 ###
+
+### Sun May 31 17:22:30 PDT 2026 :: starting B_3_r10 ###
+B-sweep: 1 cell(s), 180 sentences each
+PYTHONHASHSEED=0; seed=0; workers=4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep
+
+--- B_3 (DET/PREP=1000/10), project_rounds=10 ---
+  [B_3_r10] 20/180 correct=20 elapsed=49s (4 workers)
+  [B_3_r10] 40/180 correct=20 elapsed=114s (4 workers)
+  [B_3_r10] 60/180 correct=30 elapsed=196s (4 workers)
+  [B_3_r10] 80/180 correct=40 elapsed=294s (4 workers)
+  [B_3_r10] 100/180 correct=50 elapsed=364s (4 workers)
+  [B_3_r10] 120/180 correct=60 elapsed=451s (4 workers)
+  [B_3_r10] 140/180 correct=64 elapsed=541s (4 workers)
+  [B_3_r10] 160/180 correct=68 elapsed=623s (4 workers)
+  [B_3_r10] 180/180 correct=77 elapsed=695s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep/b_sweep_B_3_r10.json
+### Sun May 31 17:34:06 PDT 2026 :: B_3_r10 finished with exit 0 ###
+
+### Sun May 31 17:34:06 PDT 2026 :: starting B_4_r10 ###
+B-sweep: 1 cell(s), 180 sentences each
+PYTHONHASHSEED=0; seed=0; workers=4
+Output dir: /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep
+
+--- B_4 (DET/PREP=500/5), project_rounds=10 ---
+  [B_4_r10] 20/180 correct=20 elapsed=58s (4 workers)
+  [B_4_r10] 40/180 correct=20 elapsed=120s (4 workers)
+  [B_4_r10] 60/180 correct=30 elapsed=193s (4 workers)
+  [B_4_r10] 80/180 correct=40 elapsed=277s (4 workers)
+  [B_4_r10] 100/180 correct=50 elapsed=338s (4 workers)
+  [B_4_r10] 120/180 correct=60 elapsed=414s (4 workers)
+  [B_4_r10] 140/180 correct=60 elapsed=493s (4 workers)
+  [B_4_r10] 160/180 correct=63 elapsed=568s (4 workers)
+  [B_4_r10] 180/180 correct=73 elapsed=631s (4 workers)
+  wrote /Users/ajaymallya/Desktop/github/cs229_proj/03_density/results/b_sweep/b_sweep_B_4_r10.json
+### Sun May 31 17:44:38 PDT 2026 :: B_4_r10 finished with exit 0 ###
+
+### ALL DONE :: Sun May 31 17:44:38 PDT 2026 ###
