@@ -1,0 +1,5206 @@
+{
+  "config_name": "B_4",
+  "area_config": {
+    "LEX": {
+      "n": 10000,
+      "k": 100
+    },
+    "VERB": {
+      "n": 10000,
+      "k": 100
+    },
+    "SUBJ": {
+      "n": 10000,
+      "k": 100
+    },
+    "OBJ": {
+      "n": 10000,
+      "k": 100
+    },
+    "DET": {
+      "n": 500,
+      "k": 5
+    },
+    "ADJ": {
+      "n": 10000,
+      "k": 100
+    },
+    "ADV": {
+      "n": 10000,
+      "k": 100
+    },
+    "PREP": {
+      "n": 500,
+      "k": 5
+    },
+    "PREPP": {
+      "n": 10000,
+      "k": 100
+    }
+  },
+  "overall": {
+    "accuracy": 0.4056,
+    "total_correct": 73,
+    "total_sentences": 180,
+    "mean_rounds_per_word": 7.101,
+    "std_rounds_per_word": 2.8,
+    "mean_rounds_per_sentence": 29.55,
+    "std_rounds_per_sentence": 7.515
+  },
+  "by_template": [
+    {
+      "template_id": 1,
+      "description": "N V-INTRANS",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 7.5
+    },
+    {
+      "template_id": 2,
+      "description": "N V N",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.333
+    },
+    {
+      "template_id": 3,
+      "description": "D N V-INTRANS",
+      "complexity": "simple",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 6
+    },
+    {
+      "template_id": 4,
+      "description": "D N V N",
+      "complexity": "simple",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 7.125
+    },
+    {
+      "template_id": 5,
+      "description": "D N V D N",
+      "complexity": "medium",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 6
+    },
+    {
+      "template_id": 6,
+      "description": "ADJ N V N",
+      "complexity": "medium",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.125
+    },
+    {
+      "template_id": 7,
+      "description": "D ADJ N D ADJ N",
+      "complexity": "medium",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 6.429
+    },
+    {
+      "template_id": 8,
+      "description": "PRO V PRO",
+      "complexity": "simple",
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "mean_rounds_per_word": 8.333
+    },
+    {
+      "template_id": 9,
+      "description": "N V-INTRANS ADVERB",
+      "complexity": "medium",
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "mean_rounds_per_word": 7.286
+    },
+    {
+      "template_id": 10,
+      "description": "N ADVERB V-INTRANS",
+      "complexity": "medium",
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "mean_rounds_per_word": 6.857
+    },
+    {
+      "template_id": 11,
+      "description": "N V-INTRANS ADVERB",
+      "complexity": "medium",
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "mean_rounds_per_word": 7.778
+    },
+    {
+      "template_id": 12,
+      "description": "N ADVERB V N",
+      "complexity": "complex",
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "mean_rounds_per_word": 7
+    },
+    {
+      "template_id": 13,
+      "description": "N V-INTRANS PP",
+      "complexity": "complex",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 6.222
+    },
+    {
+      "template_id": 15,
+      "description": "N V N PP",
+      "complexity": "complex",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 6.729
+    },
+    {
+      "template_id": 16,
+      "description": "N PP V N",
+      "complexity": "complex",
+      "correct": 0,
+      "total": 10,
+      "accuracy": 0.0,
+      "mean_rounds_per_word": 7.148
+    },
+    {
+      "template_id": 17,
+      "description": "N COPULA N",
+      "complexity": "simple",
+      "correct": 3,
+      "total": 10,
+      "accuracy": 0.3,
+      "mean_rounds_per_word": 7.378
+    },
+    {
+      "template_id": 18,
+      "description": "N COPULA ADJ",
+      "complexity": "simple",
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "mean_rounds_per_word": 7.286
+    },
+    {
+      "template_id": 19,
+      "description": "complex copula",
+      "complexity": "medium",
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "mean_rounds_per_word": 7.778
+    }
+  ],
+  "by_area": {
+    "ADJ": {
+      "mean_rounds_to_stabilize": 4.917,
+      "std_rounds_to_stabilize": 2.718,
+      "n_observations": 120
+    },
+    "ADV": {
+      "mean_rounds_to_stabilize": 5.917,
+      "std_rounds_to_stabilize": 3.038,
+      "n_observations": 60
+    },
+    "DET": {
+      "mean_rounds_to_stabilize": 2.076,
+      "std_rounds_to_stabilize": 0.382,
+      "n_observations": 238
+    },
+    "LEX": {
+      "mean_rounds_to_stabilize": 2,
+      "std_rounds_to_stabilize": 0.0,
+      "n_observations": 749
+    },
+    "OBJ": {
+      "mean_rounds_to_stabilize": 9.091,
+      "std_rounds_to_stabilize": 2.285,
+      "n_observations": 110
+    },
+    "PREP": {
+      "mean_rounds_to_stabilize": 2.283,
+      "std_rounds_to_stabilize": 0.454,
+      "n_observations": 60
+    },
+    "PREPP": {
+      "mean_rounds_to_stabilize": 9.433,
+      "std_rounds_to_stabilize": 0.504,
+      "n_observations": 30
+    },
+    "SUBJ": {
+      "mean_rounds_to_stabilize": 4.454,
+      "std_rounds_to_stabilize": 2.692,
+      "n_observations": 370
+    },
+    "VERB": {
+      "mean_rounds_to_stabilize": 5.794,
+      "std_rounds_to_stabilize": 3.593,
+      "n_observations": 340
+    }
+  },
+  "failed_sentences": [
+    {
+      "sentence": "the dogs run",
+      "template_id": 3,
+      "expected": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats fly",
+      "template_id": 3,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man run",
+      "template_id": 3,
+      "expected": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman fly",
+      "template_id": 3,
+      "expected": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice run",
+      "template_id": 3,
+      "expected": [
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people fly",
+      "template_id": 3,
+      "expected": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man fly",
+      "template_id": 3,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman run",
+      "template_id": 3,
+      "expected": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man run",
+      "template_id": 3,
+      "expected": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman fly",
+      "template_id": 3,
+      "expected": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs chase cats",
+      "template_id": 4,
+      "expected": [
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man saw woman",
+      "template_id": 4,
+      "expected": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase the cats",
+      "template_id": 4,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "people love a man",
+      "template_id": 4,
+      "expected": [
+        [
+          "love",
+          "man",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "man",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats love mice",
+      "template_id": 4,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman bite man",
+      "template_id": 4,
+      "expected": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice love the dogs",
+      "template_id": 4,
+      "expected": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats bite a woman",
+      "template_id": 4,
+      "expected": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people saw man",
+      "template_id": 4,
+      "expected": [
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs saw a man",
+      "template_id": 4,
+      "expected": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man saw the woman",
+      "template_id": 5,
+      "expected": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs chase the cats",
+      "template_id": 5,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man love a woman",
+      "template_id": 5,
+      "expected": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats love the mice",
+      "template_id": 5,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman saw a man",
+      "template_id": 5,
+      "expected": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people chase the dogs",
+      "template_id": 5,
+      "expected": [
+        [
+          "chase",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a dogs bite a cats",
+      "template_id": 5,
+      "expected": [
+        [
+          "bite",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "dogs",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice love the dogs",
+      "template_id": 5,
+      "expected": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a cats saw a mice",
+      "template_id": 5,
+      "expected": [
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "saw",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman bite the man",
+      "template_id": 5,
+      "expected": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big man saw the bad woman",
+      "template_id": 7,
+      "expected": [
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad man bite a big woman",
+      "template_id": 7,
+      "expected": [
+        [
+          "bite",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big dogs chase the bad cats",
+      "template_id": 7,
+      "expected": [
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad cats love a big mice",
+      "template_id": 7,
+      "expected": [
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big people saw the bad dogs",
+      "template_id": 7,
+      "expected": [
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big man love a bad woman",
+      "template_id": 7,
+      "expected": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad woman bite the big man",
+      "template_id": 7,
+      "expected": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big mice chase a bad cats",
+      "template_id": 7,
+      "expected": [
+        [
+          "cats",
+          "a",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad dogs love the big cats",
+      "template_id": 7,
+      "expected": [
+        [
+          "cats",
+          "big",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "big",
+          "ADJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big people saw a bad mice",
+      "template_id": 7,
+      "expected": [
+        [
+          "mice",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "people",
+          "a",
+          "DET"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "people",
+          "big",
+          "ADJ"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "mice",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice run quickly",
+      "template_id": 9,
+      "expected": [
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man fly quickly",
+      "template_id": 9,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman run quickly",
+      "template_id": 9,
+      "expected": [
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs fly quickly",
+      "template_id": 9,
+      "expected": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman fly quickly",
+      "template_id": 9,
+      "expected": [
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice quickly run",
+      "template_id": 10,
+      "expected": [
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man quickly fly",
+      "template_id": 10,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman quickly run",
+      "template_id": 10,
+      "expected": [
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs quickly fly",
+      "template_id": 10,
+      "expected": [
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman quickly fly",
+      "template_id": 10,
+      "expected": [
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big mice run quickly",
+      "template_id": 11,
+      "expected": [
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad man fly quickly",
+      "template_id": 11,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad woman run quickly",
+      "template_id": 11,
+      "expected": [
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big dogs fly quickly",
+      "template_id": 11,
+      "expected": [
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big woman fly quickly",
+      "template_id": 11,
+      "expected": [
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man quickly saw the woman",
+      "template_id": 12,
+      "expected": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman quickly bite a man",
+      "template_id": 12,
+      "expected": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs quickly saw the cats",
+      "template_id": 12,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man quickly love a woman",
+      "template_id": 12,
+      "expected": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "love",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the cats quickly chase mice",
+      "template_id": 12,
+      "expected": [
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "quickly",
+          "ADVERB"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "quickly",
+          "ADVERB"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs run in cats",
+      "template_id": 13,
+      "expected": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats fly in mice",
+      "template_id": 13,
+      "expected": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice run of dogs",
+      "template_id": 13,
+      "expected": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man fly in woman",
+      "template_id": 13,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "in",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people run in cats",
+      "template_id": 13,
+      "expected": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman fly of man",
+      "template_id": 13,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice run of dogs",
+      "template_id": 13,
+      "expected": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs fly in cats",
+      "template_id": 13,
+      "expected": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "fly",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman fly of man",
+      "template_id": 13,
+      "expected": [
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "fly",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "fly",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people run of mice",
+      "template_id": 13,
+      "expected": [
+        [
+          "mice",
+          "of",
+          "PREP"
+        ],
+        [
+          "run",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "run",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "run",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase cats of mice",
+      "template_id": 15,
+      "expected": [
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats love mice of dogs",
+      "template_id": 15,
+      "expected": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man saw the woman of dogs",
+      "template_id": 15,
+      "expected": [
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman bite a man of mice",
+      "template_id": 15,
+      "expected": [
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the people saw cats of dogs",
+      "template_id": 15,
+      "expected": [
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "people",
+          "the",
+          "DET"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice love the dogs of cats",
+      "template_id": 15,
+      "expected": [
+        [
+          "cats",
+          "of",
+          "PREP"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats bite mice of people",
+      "template_id": 15,
+      "expected": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "people",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs chase the cats of dogs",
+      "template_id": 15,
+      "expected": [
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "the",
+          "DET"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people love cats of dogs",
+      "template_id": 15,
+      "expected": [
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "of",
+          "PREP"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man love a woman of mice",
+      "template_id": 15,
+      "expected": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "mice",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "mice",
+          "PREP_P"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs in cats chase mice",
+      "template_id": 16,
+      "expected": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats in mice love dogs",
+      "template_id": 16,
+      "expected": [
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man of woman saw dogs",
+      "template_id": 16,
+      "expected": [
+        [
+          "man",
+          "the",
+          "DET"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man of woman saw cats",
+      "template_id": 16,
+      "expected": [
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "man",
+          "woman",
+          "PREP_P"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "mice in dogs love cats",
+      "template_id": 16,
+      "expected": [
+        [
+          "dogs",
+          "in",
+          "PREP"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "dogs",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "people of cats saw dogs",
+      "template_id": 16,
+      "expected": [
+        [
+          "cats",
+          "of",
+          "PREP"
+        ],
+        [
+          "people",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "people",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "people",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs in cats chase mice",
+      "template_id": 16,
+      "expected": [
+        [
+          "cats",
+          "in",
+          "PREP"
+        ],
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "chase",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "chase",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "cats",
+          "PREP_P"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman of man bite dogs",
+      "template_id": 16,
+      "expected": [
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "of",
+          "PREP"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "man",
+          "PREP_P"
+        ]
+      ],
+      "got": [
+        [
+          "bite",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "bite",
+          "dogs",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "man",
+          "PREP_P"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats of people love mice",
+      "template_id": 16,
+      "expected": [
+        [
+          "cats",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "people",
+          "of",
+          "PREP"
+        ]
+      ],
+      "got": [
+        [
+          "love",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "love",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "people",
+          "PREP_P"
+        ],
+        [
+          "people",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs in mice saw cats",
+      "template_id": 16,
+      "expected": [
+        [
+          "dogs",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "in",
+          "PREP"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ]
+      ],
+      "got": [
+        [
+          "saw",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "saw",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "mice",
+          "PREP_P"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "PREP"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs are mice",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man are woman",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice are people",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "people",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "people",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a woman are man",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "man",
+          "OBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "man",
+          "OBJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the man are woman",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "woman",
+          "OBJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "cats are the mice",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "cats",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "mice",
+          "OBJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "dogs are a cats",
+      "template_id": 17,
+      "expected": [
+        [
+          "are",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "cats",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "cats",
+          "OBJ"
+        ],
+        [
+          "cats",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the dogs are big",
+      "template_id": 18,
+      "expected": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man are bad",
+      "template_id": 18,
+      "expected": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the mice are bad",
+      "template_id": 18,
+      "expected": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the woman are bad",
+      "template_id": 18,
+      "expected": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a man are big",
+      "template_id": 18,
+      "expected": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big mice are bad",
+      "template_id": 19,
+      "expected": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "mice",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "big",
+          "ADJ"
+        ],
+        [
+          "mice",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a bad man are big",
+      "template_id": 19,
+      "expected": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "man",
+          "a",
+          "DET"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "man",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "man",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "man",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the bad woman are big",
+      "template_id": 19,
+      "expected": [
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "the big dogs are bad",
+      "template_id": 19,
+      "expected": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "the",
+          "DET"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "dogs",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "big",
+          "ADJ"
+        ],
+        [
+          "dogs",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    },
+    {
+      "sentence": "a big woman are bad",
+      "template_id": 19,
+      "expected": [
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "woman",
+          "a",
+          "DET"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ]
+      ],
+      "got": [
+        [
+          "are",
+          "woman",
+          "SUBJ"
+        ],
+        [
+          "are",
+          "bad",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "big",
+          "ADJ"
+        ],
+        [
+          "woman",
+          "<NON-WORD>",
+          "DET"
+        ]
+      ]
+    }
+  ],
+  "wall_clock_seconds": 1345.9,
+  "variant": "B_4",
+  "project_rounds": 20,
+  "density": [
+    500,
+    5
+  ]
+}
