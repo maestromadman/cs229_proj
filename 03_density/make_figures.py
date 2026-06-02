@@ -38,21 +38,25 @@ OUT_DIR = os.path.join(HERE, "results")
 
 # Top-to-bottom in the heatmap, left-to-right in the line plot.
 VARIANTS = ["baseline", "B_original", "B_2", "B_3", "B_4"]
-ROUNDS = [20, 15, 10, 5]
+ROUNDS = [20, 15, 12, 11, 10, 5]
 
 # Color per round budget (consistent across figures so the reader can
 # track which line is which). Sequential ordering: rounds=20 (most
-# budget) -> rounds=5 (least). Blue -> teal -> purple -> red, all
-# colorblind-distinguishable.
+# budget) -> rounds=5 (least). Blue -> teal -> green -> olive ->
+# purple -> red, all colorblind-distinguishable.
 ROUND_COLORS = {
     20: "#1f77b4",  # tab:blue
     15: "#17becf",  # tab:teal
+    12: "#2ca02c",  # tab:green
+    11: "#bcbd22",  # tab:olive
     10: "#9467bd",  # tab:purple
     5:  "#d62728",  # tab:red
 }
 ROUND_MARKERS = {
     20: "o",
     15: "D",
+    12: "*",
+    11: "P",
     10: "^",
     5:  "s",
 }
@@ -87,7 +91,10 @@ def warn_if_missing(data):
 # ---------------------------------------------------------------------
 
 def figure_1_heatmap(data, outpath):
-    fig, ax = plt.subplots(figsize=(5.5, 5.5))
+    # Width scales with the number of round-budget columns so the
+    # per-cell annotations (percentage + count) never collide.
+    fig_w = 2.5 + 1.45 * len(ROUNDS)
+    fig, ax = plt.subplots(figsize=(fig_w, 5.5))
 
     # Build the accuracy matrix.
     acc = np.zeros((len(VARIANTS), len(ROUNDS)))

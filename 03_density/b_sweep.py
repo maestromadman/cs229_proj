@@ -92,11 +92,11 @@ DENSITY_VARIANTS = {
 
 # Round-budget settings to evaluate at. 20 is the published value
 # (generous headroom). 5 is right at the floor of observed mean
-# rounds-to-stabilize from the prior experiment. 10 and 15 are the
-# intermediate points added to fill in the accuracy curve between the
-# headroom regime and the stress regime (especially for B_2 at k=20,
-# whose "minimum sufficient rounds" lies in this range).
-PROJECT_ROUNDS_VALUES = [20, 15, 10, 5]
+# rounds-to-stabilize from the prior experiment. 10/12/15 are
+# intermediate points: B_2 (k=20) jumps from 64% at r=10 to 100% at
+# r=12, so r=11 is added to resolve whether the minimum sufficient
+# rounds for k=20 is exactly 11 or 12.
+PROJECT_ROUNDS_VALUES = [20, 15, 12, 11, 10, 5]
 
 
 def build_config(det_prep_n, det_prep_k):

@@ -1,2 +1,12 @@
 __pycache__
 cpp/bazel-*
+
+# Local-only paper draft — do not push.
+final_paper/
+
+# Experiment outputs and run logs — keep local only.
+*.json
+*.log
+
+# Keep all JSON results local-only.
+*.json
