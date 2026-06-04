@@ -1,49 +1,4 @@
-"""Experiment 2 -- Scaling: error vs cap size (Figure 5).
 
-Goal: with two assemblies A, B trained equally (target distribution uniform,
-Pr(A wins)=1/2), show that the error |Pr(A wins) - 1/2| converges toward the
-irreducible sampling-noise floor as the cap size k grows.
-
-Setup (Dabagia et al. 2024, Fig. 5):
-  * Two assemblies A, B, equal input weights (equal training).
-  * Sweep k over [50,100,200,500,1000,1500,2000,2500,3000,3500,4000].
-  * For each k: 20 random graphs; estimate Pr(A wins) from 500 noise samples per
-    graph; record |Pr(A wins) - 0.5|.
-  * Plot mean over the 20 trials (dark line), range across trials (shaded), and
-    the "Unbiased Maximum" reference = E[max of 20 |Binom(500,1/2)/500-1/2|].
-
-Two engines (`--engine`):
-  * meanfield (default, fast): the round-0 noisy-k-cap argmax used by 1a/1b/1c.
-    IMPORTANT CAVEAT.  Fig. 5's steep error at *small* k is a genuinely
-    NONLINEAR winner-take-all effect: at small k the activation noise
-    sigma=5 sqrt(kp) is small, so the recurrent attractor locks deterministically
-    onto whichever assembly the fixed graph favors (error ~ 0.5); as k grows,
-    sigma grows and washes the asymmetry out (error -> sampling floor).  In any
-    *linear* Gaussian read-out the k-dependence of signal and noise cancels
-    (we verified this analytically and empirically), so the mean-field engine
-    cannot reproduce the steep small-k branch -- it instead reports error that
-    stays within a small band near the sampling floor.  It still demonstrates
-    the paper's headline conclusion (the learned two-assembly distribution is
-    ~uniform, error near the floor) for k >~ 200.
-  * sparse (faithful, CPU, slow): builds the real n x n recurrent connectome
-    (scipy.sparse) and runs true noisy k-cap to convergence, so the nonlinear
-    winner-take-all -- and the full decreasing curve -- emerge.  CPU-only; a
-    large job at n=25000 (hours).
-  * torch (faithful, GPU): same dynamics as `sparse`, but the connectome is a
-    DENSE tensor and noise samples are batched, so each recurrent round is one
-    matmul.  At n=25000 the float32 matrix is ~2.5 GB (fits a 24 GB NVIDIA L4)
-    and the whole sweep runs in minutes.  Auto-uses CUDA if present.
-
-Running the faithful curve on a cloud GPU (e.g. an NVIDIA L4, 24 GB):
-    pip install torch          # the wheel bundles its CUDA runtime; you only
-                               # need the NVIDIA driver the instance already has
-    # sanity-check the curve direction first (fast):
-    python3 experiment_2.py --engine torch --validate
-    # then the full sweep:
-    python3 experiment_2.py --engine torch --out figure_5_torch.png
-Memory note: each graph holds one ~2.5 GB dense matrix; it is freed between
-graphs.  Lower --batch if you ever hit an OOM at very large n.
-"""
 
 from __future__ import annotations
 
@@ -115,13 +70,9 @@ def run(ks=K_SWEEP, n=nx.N_DEFAULT, p=nx.P_DEFAULT, n_graphs=20, n_trials=500,
         noise_scale=nx.NOISE_SCALE_DEFAULT, engine="meanfield", seed=0,
         device="auto", batch=None, max_rounds=20, n_ratio=None,
         noise_every_round=False, w_input=None, verbose=True):
-    # n_ratio: if set, neurons scale with cap as n_k = round(n_ratio * k), holding
-    # assembly density constant (the paper's n/k = 25000/500 = 50).  This is the
-    # regime in which Fig 5's decreasing curve appears; fixed n gives the opposite.
-    # w_input: weight on I -> A and I -> B; if None, use the trained value (Fig 3b
-    # convention); the paper Fig 5 sets it directly to 2 (the "here, 2" in §4.2).
+    
     w = (float(w_input) if w_input is not None
-         else nx.train_assembly_weight(train_presentations))   # equal weights A,B
+         else nx.train_assembly_weight(train_presentations))   
     master = np.random.default_rng(seed)
     if engine == "torch":
         dev = nx.torch_device(device)
@@ -228,8 +179,7 @@ def main():
     ks_arg = [int(x) for x in args.ks.split(",")] if args.ks else None
 
     if args.validate:
-        # With a fixed ratio, large k blows up the dense matrix; pick cap sizes
-        # whose n stays within a ~24 GB GPU.
+        
         ks = ks_arg or ([50, 200, 1000] if args.n_ratio else [50, 500, 4000])
         ng = args.graphs if args.graphs != 20 else 4
         nt = args.trials if args.trials != 500 else 200

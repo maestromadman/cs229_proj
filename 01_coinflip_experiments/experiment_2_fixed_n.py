@@ -1,32 +1,4 @@
-"""experiment_2_fixed_n.py -- Figure 5 with the paper's LITERAL setup (n=25000).
 
-Companion to experiment_2.py.  Same simulator, same dynamics, same plasticity
-rule -- the only difference is that n is held at the paper's stated 25,000
-across the cap-size sweep instead of being scaled with k.
-
-Paper text (Section 4.1, applied to Section 4.2):
-    n = 25000, k swept, p = 0.1, noise std = 5 * sqrt(k*p),
-    20 connectivity graphs per k, 500 samples per graph,
-    weights to A and B equal (= 2 in the paper, = trained value here).
-
-What this run will show: at fixed n=25000, the curve goes the OPPOSITE
-direction from Fig 5 -- error INCREASES with k.  At small k the two
-assemblies are tiny (e.g. 2 * 50 neurons of 25,000) and lost among the
-background noise tail; they never register in the cap, so neither A nor B
-reliably wins and the coin is near-fair (low error).  At large k they
-finally register and the residual random-graph asymmetry biases each trial
--> higher error.
-
-This file is preserved as the LITERAL-paper-params reference.  See
-`experiment_2.py --n-ratio 10` (constant 20% assembly density) for the
-companion run that reproduces Fig 5's *decreasing* shape -- that one
-deviates from the literal n but matches the figure.  Document this protocol
-gap in the writeup.
-
-Run:
-    python3 experiment_2_fixed_n.py --engine torch
-    # -> writes figure_5_fixed_n.png
-"""
 
 from __future__ import annotations
 

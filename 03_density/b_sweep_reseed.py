@@ -1,44 +1,4 @@
-"""b_sweep_reseed.py -- reseed the 5 frontier-adjacent cells with N=10 seeds each.
 
-For each of the following 5 (variant, project_rounds) cells, run the full
-180-sentence sweep at 10 different RNG seeds (0..9), then compute mean and
-standard deviation of accuracy and mean-rounds-per-word across seeds.
-
-  Cell                Why
-  -----               ---
-  B_2 / r=10          Threshold lower bound (single-seed: 63.9%)
-  B_2 / r=11          Threshold itself (single-seed: 100%)
-  B_2 / r=12          Threshold upper-bound check (single-seed: 100%)
-  B_3 / r=10          Near-cliff bump (single-seed: 42.8% vs 40.6% floor)
-  B_original / r=10   Control: seed variance in converged regime (s-seed: 100%)
-
-Determinism note
-----------------
-We pin PYTHONHASHSEED=0 once at the parent (re-exec if needed) and then
-vary only the numpy RNG seed across runs. Python's hash seed governs dict
-iteration order inside the parser; the numpy seed governs connectome
-generation. The connectome is the dominant variance source we want to
-characterize, so this scope is intentional. A stricter rerun (one
-subprocess per seed, each with its own PYTHONHASHSEED) is a follow-up
-if dict-order noise turns out to matter.
-
-Usage
------
-  # Smoke test (1 sentence per template, single worker, single cell):
-  python 03_density/b_sweep_reseed.py --limit-per-template 1 --workers 1 \\
-      --seeds 0 --only B_2 11
-
-  # Full sweep (5 cells x 10 seeds = 50 runs):
-  python 03_density/b_sweep_reseed.py --workers 4
-
-  # Regenerate figure from already-run JSONs (no parsing):
-  python 03_density/b_sweep_reseed.py --figure-only
-
-JSON output: one file per (cell, seed) at
-  03_density/results/b_sweep/b_sweep_reseed_{variant}_r{rounds}_s{seed}.json
-
-Figure output: 03_density/results/figure_3_seeded.png
-"""
 
 import argparse
 import json
@@ -47,9 +7,6 @@ import sys
 import time
 
 
-# ---------------------------------------------------------------------
-# Path setup -- must be before importing brain / parser / configs.
-# ---------------------------------------------------------------------
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, os.pardir))
@@ -59,30 +16,24 @@ for _p in (REPO_ROOT, REPRO_DIR, HERE):
         sys.path.insert(0, _p)
 
 
-# ---------------------------------------------------------------------
-# PYTHONHASHSEED pin (re-exec parent once if needed).
-# ---------------------------------------------------------------------
-
 if os.environ.get("PYTHONHASHSEED") != "0":
     os.environ["PYTHONHASHSEED"] = "0"
     os.execv(sys.executable, [sys.executable] + sys.argv)
 
 
-import numpy as np  # noqa: E402
-import matplotlib  # noqa: E402
+import numpy as np  
+import matplotlib  
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt  
 
-import run_parser_experiments as rpe  # noqa: E402
-from b_sweep import (  # noqa: E402
+import run_parser_experiments as rpe  
+from b_sweep import (  
     DENSITY_VARIANTS, build_config, aggregate_cell, filter_sentences,
 )
-from configs import validate_config  # noqa: E402
+from configs import validate_config 
 
 
-# ---------------------------------------------------------------------
-# The 5 cells to reseed.
-# ---------------------------------------------------------------------
+
 
 CELLS_TO_RESEED = [
     ("B_2", 10),
@@ -92,8 +43,7 @@ CELLS_TO_RESEED = [
     ("B_original", 10),
 ]
 
-# Single-seed reference values from the existing b_sweep JSONs (for display
-# in the figure caption alongside the reseeded mean +/- std).
+
 SINGLE_SEED_REFERENCE = {
     ("B_2", 10): 0.6389,
     ("B_2", 11): 1.0,
@@ -108,9 +58,7 @@ RESULTS_BASE = os.path.join(HERE, "results")
 OUT_DIR = os.path.join(RESULTS_BASE, "b_sweep")
 
 
-# ---------------------------------------------------------------------
-# Single-run driver.
-# ---------------------------------------------------------------------
+
 
 def reseed_path(variant, rounds, seed):
     return os.path.join(
@@ -119,7 +67,7 @@ def reseed_path(variant, rounds, seed):
 
 
 def run_one(variant, rounds, seed, sentences, workers):
-    """One (cell, seed) run. Writes its JSON; returns the result dict."""
+    
     rpe._CURRENT_SEED[0] = seed
     n, k = DENSITY_VARIANTS[variant]
     cfg = build_config(n, k)
@@ -136,12 +84,9 @@ def run_one(variant, rounds, seed, sentences, workers):
     return result
 
 
-# ---------------------------------------------------------------------
-# Aggregation across seeds.
-# ---------------------------------------------------------------------
 
 def summarize(all_results):
-    """all_results: dict[(variant, rounds)] -> list[result dict]."""
+    
     summary = {}
     for cell, results in all_results.items():
         if not results:
@@ -165,14 +110,7 @@ def summarize(all_results):
 
 
 def load_results(seeds=None):
-    """Reload per-(cell, seed) JSONs from disk for figure aggregation.
-
-    If ``seeds`` is None (default), pulls every JSON that exists on disk
-    for each cell, sorted by seed. This lets a partial run (some cells
-    with N seeds, others with M) all contribute to the figure.
-
-    If ``seeds`` is a list, only loads those specific seeds.
-    """
+    
     import glob
     all_results = {}
     for variant, rounds in CELLS_TO_RESEED:
@@ -195,12 +133,9 @@ def load_results(seeds=None):
     return all_results
 
 
-# ---------------------------------------------------------------------
-# Figure.
-# ---------------------------------------------------------------------
 
 def make_figure(summary, out_path):
-    """Two-panel figure: per-cell accuracy bar chart + summary table."""
+    
     if not summary:
         print("No results to plot; skipping figure.")
         return
@@ -210,11 +145,7 @@ def make_figure(summary, out_path):
     fig = plt.figure(figsize=(12, 8))
     gs = fig.add_gridspec(2, 1, height_ratios=[1.0, 0.9], hspace=0.45)
 
-    # Top: bar chart of mean accuracy with +/- 1 SD error bars. Cells
-    # with zero std (the 4 deterministic ones) just have no visible
-    # error bar; B_3 r=10 is the only cell where the error bar is
-    # visible, which makes the "one of these is not like the others"
-    # story immediately readable.
+    
     ax = fig.add_subplot(gs[0])
     xs = list(range(len(cells)))
     labels = []
@@ -225,14 +156,13 @@ def make_figure(summary, out_path):
     means = [summary[c]["acc_mean"] for c in cells]
     stds = [summary[c]["acc_std"] for c in cells]
 
-    # Color B_3 differently to draw attention to the only cell with
-    # real seed variance.
+    
     colors = []
     for cell in cells:
         if cell == ("B_3", 10):
             colors.append("#d96b6b")  # muted red
         else:
-            colors.append("#5b8dbf")  # steel blue
+            colors.append("#5b8dbf")  
 
     ax.bar(
         xs, means, yerr=stds, capsize=10,
@@ -240,7 +170,7 @@ def make_figure(summary, out_path):
         ecolor="black", error_kw={"elinewidth": 1.8},
     )
 
-    # Annotate each bar with the value above it.
+    
     for i, (m, s) in enumerate(zip(means, stds)):
         if s > 0:
             label = f"{m * 100:.1f}% ± {s * 100:.1f}pp"
@@ -262,7 +192,7 @@ def make_figure(summary, out_path):
     ax.grid(axis="y", alpha=0.3)
     ax.set_axisbelow(True)
 
-    # Bottom: summary table.
+    
     ax_table = fig.add_subplot(gs[1])
     ax_table.axis("off")
     headers = [
@@ -294,7 +224,7 @@ def make_figure(summary, out_path):
     table.auto_set_font_size(False)
     table.set_fontsize(10)
     table.scale(1, 1.6)
-    # Header styling.
+   
     for j in range(len(headers)):
         cell = table[0, j]
         cell.set_facecolor("#dddddd")
@@ -309,10 +239,6 @@ def make_figure(summary, out_path):
     plt.close(fig)
     print(f"Saved {out_path}")
 
-
-# ---------------------------------------------------------------------
-# CLI.
-# ---------------------------------------------------------------------
 
 def parse_args():
     p = argparse.ArgumentParser(
@@ -362,7 +288,7 @@ def main():
     else:
         cells = CELLS_TO_RESEED
 
-    # Build the per-(cell, seed) execution list, honoring --skip-existing.
+    
     to_run = []
     skipped = []
     for variant, rounds in cells:
@@ -406,10 +332,7 @@ def main():
         print(f"\nAll {n_total} runs completed in "
               f"{total_elapsed / 60:.1f} min")
 
-    # Reload JSONs from disk for the figure, restricted to the seeds
-    # requested via --seeds. Cells whose seed range is a strict subset of
-    # what's on disk will be aggregated over only the requested seeds,
-    # which keeps the figure visually consistent (same n_seeds per cell).
+    
     all_results = load_results(seeds=args.seeds)
     n_loaded = sum(len(v) for v in all_results.values())
     print(f"Loaded {n_loaded} per-(cell, seed) JSONs for the figure.")

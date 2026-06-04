@@ -1,22 +1,3 @@
-"""Configurable parser brain + instrumented per-sentence parse.
-
-Two things only:
-
-1. ``ConfigurableEnglishParserBrain`` subclasses ``ParserBrain`` exactly
-   like ``EnglishParserBrain``, but accepts a per-area ``{n, k}`` dict.
-   No parser logic, word actions, fiber rules, or inhibition patterns
-   change -- only per-area population size and cap size.
-
-2. ``parse_sentence_instrumented`` is a copy of ``parser.parseHelper``
-   (Algorithm 2 + Algorithm 3 FIBER_READOUT) with two additions:
-
-   * The ``project_rounds`` loop snapshots winners after every
-     ``parse_project`` call and records, per active area, the round at
-     which two consecutive snapshots first match (the area's
-     stabilization round).
-   * The readout collects dependencies into a list instead of printing
-     them, so the caller does not have to regex stdout.
-"""
 
 import os
 import sys
@@ -27,8 +8,8 @@ REPO_ROOT = os.path.abspath(os.path.join(HERE, os.pardir))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-import parser as ac_parser  # noqa: E402
-from parser import (  # noqa: E402
+import parser as ac_parser  
+from parser import ( 
     AREAS, RECURRENT_AREAS,
     LEX, DET, SUBJ, OBJ, VERB, ADJ, ADVERB, PREP, PREP_P,
     LEX_SIZE,
@@ -38,7 +19,7 @@ from parser import (  # noqa: E402
 )
 
 
-# External-config name -> internal parser area constant.
+
 AREA_NAME_MAP = {
     "LEX":   LEX,
     "DET":   DET,
@@ -51,16 +32,12 @@ AREA_NAME_MAP = {
     "PREPP": PREP_P,
 }
 
-# Reverse map for convergence reporting (parser-internal -> external).
+
 INTERNAL_TO_EXTERNAL = {v: k for k, v in AREA_NAME_MAP.items()}
 
 
 class ConfigurableEnglishParserBrain(ParserBrain):
-    """Same as parser.EnglishParserBrain but with a per-area (n,k) config.
-
-    The config dict uses the external area names from ``configs.py``
-    (``LEX, DET, SUBJ, OBJ, VERB, ADJ, ADV, PREP, PREPP``).
-    """
+    
 
     def __init__(self, p, area_config,
                  default_beta=0.2,
@@ -79,13 +56,11 @@ class ConfigurableEnglishParserBrain(ParserBrain):
         self.verbose = verbose
         self.area_config = dict(area_config)
 
-        # Translate external area names to parser internals.
+        
         cfg = {AREA_NAME_MAP[name]: params
                for name, params in area_config.items()}
 
-        # LEX: explicit area. Its inner connectome is n x n, so a large
-        # LEX_n is expensive but otherwise harmless. We require
-        # LEX_n >= LEX_SIZE * LEX_k so every word assembly fits.
+        
         lex_n = cfg[LEX]["n"]
         lex_k = cfg[LEX]["k"]
         min_lex_n = LEX_SIZE * lex_k
@@ -97,13 +72,12 @@ class ConfigurableEnglishParserBrain(ParserBrain):
             )
         self.add_explicit_area(LEX, lex_n, lex_k, default_beta)
 
-        # Other areas: order mirrors EnglishParserBrain for stable
-        # connectome construction.
+        
         for area_name in (SUBJ, OBJ, VERB, ADJ, PREP, PREP_P, DET, ADVERB):
             a = cfg[area_name]
             self.add_area(area_name, a["n"], a["k"], default_beta)
 
-        # Plasticity: identical to EnglishParserBrain.
+        
         custom_plasticities = defaultdict(list)
         for area in RECURRENT_AREAS:
             custom_plasticities[LEX].append((area, LEX_beta))
@@ -115,7 +89,7 @@ class ConfigurableEnglishParserBrain(ParserBrain):
                 custom_plasticities[area].append((other, interarea_beta))
         self.update_plasticities(area_update_map=custom_plasticities)
 
-    # ---- Behavior duplicated from EnglishParserBrain ---------------
+    
 
     def getProjectMap(self):
         proj_map = ParserBrain.getProjectMap(self)
@@ -130,15 +104,10 @@ class ConfigurableEnglishParserBrain(ParserBrain):
         word = ParserBrain.getWord(self, area_name, min_overlap)
         if word:
             return word
-        # DET special-case in EnglishParserBrain references DET_SIZE which
-        # is not actually defined in parser.py; the code path was dead.
-        # We return the parser's standard placeholder.
+        
         return "<NON-WORD>"
 
 
-# ----------------------------------------------------------------------
-# Instrumented parse
-# ----------------------------------------------------------------------
 
 def _active_areas_from_proj_map(proj_map):
     active = set()
@@ -150,33 +119,7 @@ def _active_areas_from_proj_map(proj_map):
 
 
 def parse_sentence_instrumented(brain, sentence, project_rounds=20):
-    """Run Algorithm 2 + FIBER_READOUT on ``sentence`` using ``brain``.
-
-    Returns ``(dependencies, convergence)`` where:
-      * ``dependencies`` is a list of ``[word_a, word_b, area_label]``
-        triples produced by the readout.
-      * ``convergence`` is a dict::
-
-          {
-            "num_words": int,
-            "total_project_calls": int,
-            "per_call": [
-              {
-                "word": str,
-                "round_index": int,            # 0-based word position
-                "active_areas": [str, ...],    # external names
-                "per_area_rounds": {str: int},
-                "rounds_to_stabilize_max": int,
-              }, ...
-            ],
-          }
-
-    Rounds-to-stabilize for an area = smallest ``r >= 2`` such that the
-    area's k winners after round r equal the k winners after round r-1.
-    If no such r is observed within ``project_rounds``, the recorded
-    value is ``project_rounds`` (i.e. it never stabilized inside the
-    allotted budget).
-    """
+   
     convergence = {
         "num_words": 0,
         "total_project_calls": 0,
@@ -192,7 +135,7 @@ def parse_sentence_instrumented(brain, sentence, project_rounds=20):
         for rule in lexeme["PRE_RULES"]:
             brain.applyRule(rule)
 
-        # Same fix/unfix dance as parser.parseHelper.
+        
         proj_map = brain.getProjectMap()
         for area in proj_map:
             if area not in proj_map[LEX]:
@@ -201,8 +144,7 @@ def parse_sentence_instrumented(brain, sentence, project_rounds=20):
                 brain.area_by_name[area].unfix_assembly()
                 brain.area_by_name[area].winners = []
 
-        # --- Instrumented projection loop ---------------------------
-        # snapshots[area] = list of winners after each round (in order)
+        
         snapshots = {}
         stabilized_at = {}
         active_total = set()
@@ -249,7 +191,7 @@ def parse_sentence_instrumented(brain, sentence, project_rounds=20):
 
     convergence["num_words"] = len(sentence_tokens)
 
-    # --- Readout (FIBER_READOUT, mirrors parser.parseHelper) --------
+    
     brain.disable_plasticity = True
     for area in AREAS:
         brain.area_by_name[area].unfix_assembly()

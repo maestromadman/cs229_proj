@@ -1,53 +1,4 @@
-"""Heterogeneous Neuron Density experiments on the Assembly-Calculus parser.
 
-Runs 5 per-area-config variants of the parser
-(``baseline``, ``experiment_A_verb_enlarged``,
-``experiment_B_closed_class_shrunk``, ``experiment_C_proportional``,
-``experiment_D_inverted``) on:
-
-  Round 1: 6 priority templates (10 sentences each) =  60 sents/config.
-  Full:    all 18 working templates                  = 180 sents/config.
-
-Per-config JSON dropped to ``03_density/results/{name}_{round1,full}.json``.
-
-Usage
------
-  # All configs, both rounds, with the Round 1 summary printed first:
-  python 03_density/run_parser_experiments.py
-
-  # Single config:
-  python 03_density/run_parser_experiments.py --config experiment_A_verb_enlarged
-
-  # Round 1 only:
-  python 03_density/run_parser_experiments.py --round1-only
-
-  # Full only (skip Round 1 summary):
-  python 03_density/run_parser_experiments.py --full-only
-
-  # Parallel across sentences (default min(cpu_count, 8)):
-  python 03_density/run_parser_experiments.py --workers 8
-
-  # Smoke test:
-  python 03_density/run_parser_experiments.py --limit-per-template 1 --workers 1
-
-Determinism
------------
-The repo has two sources of randomness: ``brain.Brain``'s NumPy RNG, and
-Python's per-process string hash seed (which affects ``defaultdict(set)``
-iteration order inside the parser). We pin ``PYTHONHASHSEED`` via re-exec
-on the parent, monkey-patch ``brain.Brain.__init__`` so every brain uses
-``--seed``, and propagate the same seed to multiprocessing workers via a
-Pool initializer. Workers inherit PYTHONHASHSEED from the parent
-environment, so they do not re-exec.
-
-Multiprocessing
----------------
-Sentences are independent, so we parallelize across them with
-``multiprocessing.Pool``. Each worker draws a fresh
-``ConfigurableEnglishParserBrain`` per sentence (memory hits a peak of
-~400 MB per worker while the LEX inner connectome materializes). With
-N workers, peak RAM ~= 400 MB * N.
-"""
 
 import argparse
 import gc
@@ -61,9 +12,7 @@ import traceback
 from collections import defaultdict
 
 
-# ---------------------------------------------------------------------
-# Path setup (must happen before importing brain/parser modules).
-# ---------------------------------------------------------------------
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, os.pardir))
@@ -72,50 +21,28 @@ for _p in (REPO_ROOT, REPRO_DIR, HERE):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-import brain as ac_brain  # noqa: E402
-import numpy as np  # noqa: E402
+import brain as ac_brain  
+import numpy as np  
 
-from configs import (  # noqa: E402
+from configs import (  
     CONFIGS, SHORT_NAMES, validate_config, validate_all,
 )
-from instrumented_parser import (  # noqa: E402
+from instrumented_parser import (  
     ConfigurableEnglishParserBrain,
     parse_sentence_instrumented,
 )
-from test_sentences import (  # noqa: E402  (lives in 02_parser_reproduced)
+from test_sentences import (  
     SENTENCES, TEMPLATE_DESCRIPTIONS,
 )
 
 
-# ---------------------------------------------------------------------
-# Brain seed patch.
-# ---------------------------------------------------------------------
-#
-# brain.Brain.__init__ already accepts a ``seed`` kwarg, but parser.py
-# never sets it -- so by default every brain across the experiment uses
-# the NumPy default RNG, which is non-reproducible across runs. We
-# monkey-patch __init__ to substitute our seed.
-#
-# ``_CURRENT_SEED`` is module-level so it is visible to both the
-# patched function and (after the Pool initializer sets it) worker
-# processes. With ``spawn`` start method, workers re-import this
-# module, _install_seed_patch() runs again, and ``_worker_init`` below
-# overwrites _CURRENT_SEED[0] with the seed the parent passes in.
+
 
 _CURRENT_SEED = [0]
 
 
 def _install_seed_patch():
-    """Patch ``Brain.__init__`` to seed *both* the brain's own RNG and
-    NumPy's legacy global RNG.
-
-    The legacy global is the RNG that ``scipy.stats.truncnorm.rvs`` and
-    ``scipy.stats.binom`` fall back to when ``random_state`` is not
-    passed. ``brain.project_into`` calls ``truncnorm.rvs(...)`` without
-    a random_state (see brain.py: the ``potential_new_winner_inputs``
-    line), so without this extra ``np.random.seed`` two runs at the
-    same ``Brain(seed=0)`` produce different per-area dynamics.
-    """
+    
     _orig = ac_brain.Brain.__init__
 
     def _seeded_init(self, p, *args, **kwargs):
@@ -129,9 +56,7 @@ def _install_seed_patch():
 _install_seed_patch()
 
 
-# ---------------------------------------------------------------------
-# Template metadata.
-# ---------------------------------------------------------------------
+
 
 ROUND1_TEMPLATES = [2, 5, 7, 13, 15, 16]
 
@@ -160,23 +85,10 @@ def _filter_sentences(template_ids, limit_per_template=None):
     return out
 
 
-# ---------------------------------------------------------------------
-# Per-sentence driver.
-# ---------------------------------------------------------------------
+
 
 def parse_one(area_config, sentence):
-    """Build a fresh brain for the given config and parse ``sentence``.
-
-    Returns {"dependencies": ..., "convergence": ..., "error": None | str}.
-
-    We explicitly drop the brain and force a ``gc.collect()`` afterwards
-    because the LEX inner connectome alone is ~400 MB for the n=10000
-    configs; without forcing collection, stale brains from prior
-    sentences can accumulate in the same worker (Python's generational
-    GC is conservative about NumPy arrays) and the worker can be killed
-    by the OS for memory pressure, which in turn collapses the whole
-    multiprocessing.Pool.
-    """
+    
     brain = None
     try:
         brain = ConfigurableEnglishParserBrain(
@@ -202,9 +114,7 @@ def deps_to_set(deps):
     return {tuple(d) for d in deps} if deps else set()
 
 
-# ---------------------------------------------------------------------
-# Multiprocessing scaffolding (top-level so it pickles).
-# ---------------------------------------------------------------------
+
 
 def _worker_init(seed):
     """Initializer called once in each worker process."""
@@ -218,9 +128,7 @@ def _worker_parse(args):
     return sentence_idx, sentence_info, r
 
 
-# ---------------------------------------------------------------------
-# Per-config aggregation.
-# ---------------------------------------------------------------------
+
 
 def _empty_aggregate():
     return {
@@ -341,7 +249,7 @@ def _finalize_aggregate(config_name, area_config, agg, elapsed):
 
 def aggregate_run(config_name, area_config, sentences, *,
                   workers=1, seed=0):
-    """Run all ``sentences`` under one config; return an aggregated dict."""
+    
     agg = _empty_aggregate()
     t0 = time.time()
 
@@ -358,8 +266,7 @@ def aggregate_run(config_name, area_config, sentences, *,
                     flush=True,
                 )
     else:
-        # Parallel path. Use 'spawn' so workers re-import this module
-        # and re-apply the seed patch cleanly.
+        
         ctx = mp.get_context("spawn")
         n = len(sentences)
         printed_done = 0
@@ -369,9 +276,7 @@ def aggregate_run(config_name, area_config, sentences, *,
             initializer=_worker_init,
             initargs=(seed,),
         ) as pool:
-            # imap_unordered for responsiveness; we re-sort by sentence
-            # index after if needed (we don't, _absorb_result is order-
-            # independent for stats).
+            
             for sentence_idx, sinfo, r in pool.imap_unordered(
                 _worker_parse, args, chunksize=1,
             ):
@@ -391,9 +296,7 @@ def aggregate_run(config_name, area_config, sentences, *,
     return _finalize_aggregate(config_name, area_config, agg, elapsed)
 
 
-# ---------------------------------------------------------------------
-# Reporting.
-# ---------------------------------------------------------------------
+
 
 CONFIG_DISPLAY_ORDER = [
     "baseline",
@@ -470,9 +373,7 @@ def print_round_summary(round_label, n_sentences, all_results):
     print()
 
 
-# ---------------------------------------------------------------------
-# CLI + driver.
-# ---------------------------------------------------------------------
+
 
 def _parse_args():
     p = argparse.ArgumentParser(
@@ -547,10 +448,7 @@ def _run_label(label, template_ids, configs_to_run, out_dir, args):
 def main():
     args = _parse_args()
 
-    # PYTHONHASHSEED has to be set in env BEFORE Python starts using
-    # string hashing. If we were not launched with the right value,
-    # re-exec the parent. Workers inherit PYTHONHASHSEED from our env
-    # and so do not need to re-exec.
+    
     if os.environ.get("PYTHONHASHSEED") != str(args.seed):
         os.environ["PYTHONHASHSEED"] = str(args.seed)
         os.execv(sys.executable, [sys.executable] + sys.argv)

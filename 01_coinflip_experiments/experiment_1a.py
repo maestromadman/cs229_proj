@@ -1,27 +1,4 @@
-"""Experiment 1a -- Assembly coin-flip: weight sweep (Figure 3a).
 
-Goal: show that Pr(A1 wins) is (approximately) a softmax of the incoming weights
-from the context assembly I.
-
-Setup (Dabagia et al. 2024, Fig. 3a):
-  * One context assembly I, three outcome assemblies A1, A2, A3 in state area S.
-  * Internal/recurrent assembly weight = 2 for all three (the attractor weight).
-  * Input weights W(I->A2) = W(I->A3) held fixed and equal; W(I->A1) swept.
-  * For each weight value: fire I once with Gaussian noise, run S to convergence
-    (no plasticity), record the winning assembly; repeat over many noise draws
-    to estimate Pr(A1 wins).
-  * Repeat over many random graphs; plot mean and [0.05, 0.95] quantile band,
-    plus the best-fit softmax curve (lambda chosen to minimize MSE).
-
-Note on the reference weight: the task statement fixed W(I->A2)=W(I->A3)=2, but
-with input weight 2 the swept A1 (max 1.7) can never out-compete A2/A3 and
-Pr(A1 wins) would be ~0 across the whole sweep -- no sigmoid.  The "2" in the
-paper is the *internal/recurrent* factor w_R (used here for all three
-assemblies); the *input* weights to A2/A3 sit near the middle of the A1 sweep.
-We therefore set the reference input weight to ~1.5 (`--w-ref`) so the empirical
-curve reproduces the Fig. 3a sigmoid, exactly as in the paper.  Internal weight
-stays 2.
-"""
 
 from __future__ import annotations
 
@@ -38,8 +15,7 @@ def run(n=nx.N_DEFAULT, k=nx.K_DEFAULT, p=nx.P_DEFAULT, m=3, w_ref=1.5,
         w1_lo=1.3, w1_hi=1.7, n_weights=20, n_graphs=30, n_trials=500,
         internal_factor=nx.INTERNAL_FACTOR, noise_scale=nx.NOISE_SCALE_DEFAULT,
         seed=0, verbose=True):
-    """Returns (w1_values, results) where results is (n_graphs, n_weights) of
-    Pr(A1 wins)."""
+    
     sigma = nx.noise_std(k, p, noise_scale)
     w1_values = np.linspace(w1_lo, w1_hi, n_weights)
     results = np.zeros((n_graphs, n_weights), dtype=np.float64)
@@ -69,7 +45,7 @@ def plot(w1_values, results, w_ref, out_path, title_suffix=""):
     q05 = np.quantile(results, 0.05, axis=0)
     q95 = np.quantile(results, 0.95, axis=0)
 
-    # Best-fit softmax over [w1, w_ref, w_ref].
+    
     weights_matrix = np.column_stack([w1_values,
                                       np.full_like(w1_values, w_ref),
                                       np.full_like(w1_values, w_ref)])

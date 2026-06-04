@@ -1,38 +1,4 @@
-"""Experiment 3 -- Trigram language model (Figure 8b).
 
-Trains a trigram model on "The Owl and the Pussy-Cat" by Edward Lear and
-generates a sample text string, reproducing the style of Fig. 8(b).
-
-Architecture (Dabagia et al. 2024, Sec. 4.4):
-  n=100000, k=500, p=0.1, plasticity alpha=0.63, beta=0.5, lambda=60.
-  Three brain areas A (sampling), B (1st memory), C (2nd memory).
-  Inter-areal connections A->B, B->A, B->C, C->A (no C->B).
-  Each token tau has assemblies A_tau, B_tau, C_tau.  Internal assembly weights
-  are pre-strengthened x2; identity connections A_tau->B_tau and B_tau->C_tau are
-  x2; all other (cross-token) connections stay at 1.
-
-Training: present the corpus 5 times.  For each token tau_t fire A_tau_t while
-B_tau_{t-1} and C_tau_{t-2} are active (carried by the identity connections),
-so the additive rule strengthens the trigram-context synapses
-    W(A_tau_t  <-  B_tau_{t-1})   (bigram: previous token)
-    W(A_tau_t  <-  C_tau_{t-2})   (skip:   token before previous).
-
-Sampling/generation (Sec. 4.4): seed two tokens (tau1, tau2).  Then repeatedly:
-  B_tau2 and C_tau1 fire into A; A->B and B->C are inhibited; A fires 10 noisy
-  rounds (k-cap competition, plasticity OFF) and converges to some A_tau3; A is
-  inhibited, inter-areal connections re-enabled, the identity connections move
-  B -> tau3 and C -> tau2; repeat.
-
-How the coin-flip is computed here.  Theorem 1 of the paper proves that the
-10-round noisy k-cap in area A converges to assembly A_c with probability equal
-to a softmax of the incoming weights W(A_c<-B_b)+W(A_c<-C_a).  We therefore
-compute that competition directly at the assembly level (a noisy arg-max over
-the token weights) rather than instantiating all 10^5 neurons and their
-connectomes -- at n=10^5, k=500 the per-token signal sits inside the background
-noise tail, so a literal neuron-level k-cap needs the full recurrent attractor
-(the slow sparse engine).  The assembly-level computation is exactly the
-behaviour that theorem proves the neurons implement.
-"""
 
 from __future__ import annotations
 
@@ -44,9 +10,7 @@ import numpy as np
 import nemo_extensions as nx
 
 
-# Normalized rendering of the poem (lowercase; hyphenated/possessive forms
-# simplified the way Fig. 8b shows them, e.g. "pussycat", "piggy wig",
-# "pea green").  Punctuation marks are kept and tokenized separately.
+
 POEM = """
 the owl and the pussycat went to sea in a beautiful pea green boat .
 they took some honey and plenty of money wrapped up in a five pound note .
@@ -92,18 +56,7 @@ def train(token_ids, V, passes=5, alpha=nx.CF_ALPHA, beta=nx.CF_BETA,
 
 def generate(W_B, W_C, vocab, tok2id, seed_tokens, max_tokens=120,
              min_sentences=6, noise=0.05, rng=None):
-    """Generate a token sequence via the assembly coin-flip (noisy arg-max).
-
-    At each step the score of candidate token c is W_B[c, prev] + W_C[c, prevprev]
-    (the total weight into A_c from the firing B and C assemblies); the winner is
-    arg-max over c of score + Gaussian noise, mirroring the noisy k-cap.  The
-    noise is kept small so that a full trigram context with a unique successor is
-    followed deterministically (reproducing long, coherent poem lines), while a
-    context with several admissible successors (equal top weight) is resolved
-    ~uniformly -- that is the coin-flip, and it is what produces the recombination
-    of poem fragments seen in Fig. 8b.  Generation halts at the first sentence
-    boundary once `min_sentences` periods have been emitted.
-    """
+    
     if rng is None:
         rng = np.random.default_rng()
     a, b = tok2id[seed_tokens[0]], tok2id[seed_tokens[1]]

@@ -1,33 +1,4 @@
-"""Reproduce the Section-5 syntax experiment from Mitropolsky, Collins,
-Papadimitriou (2021) on the unmodified Assembly-Calculus parser.
 
-Templates 14 and 20 are excluded -- both depend on the COMP_1/COMP_2
-chained-modifier extension sketched in Paper Section 6 but not provided
-in the repo, and so cannot be addressed by varying n/k. That leaves
-18 templates x 10 sentences = 180.
-
-Determinism
------------
-The parser's randomness has two sources:
-  * brain.Brain samples its connectome via ``self._rng =
-    np.random.default_rng(seed=seed)``. The Brain class accepts a ``seed``
-    parameter (default 0) but ``parse()`` never sets it explicitly.
-  * Python randomizes string-hash order per process (PYTHONHASHSEED),
-    which changes the iteration order of the ``defaultdict(set)``
-    structures used inside parser.py and so the order of projections
-    during readout.
-
-To get bit-reproducible runs we (a) pin PYTHONHASHSEED via re-exec and
-(b) monkey-patch ``brain.Brain.__init__`` from the outside so every
-``EnglishParserBrain`` instance constructed during this script uses the
-requested seed. The parser source files are not modified on disk.
-
-Usage
------
-  python run_experiment.py                  # seed=0 (default)
-  python run_experiment.py --seed 7         # single seed
-  python run_experiment.py --seeds 0,1,2,3,4  # multi-seed; reports mean/std
-"""
 
 import argparse
 import ast
@@ -42,10 +13,6 @@ import traceback
 from collections import defaultdict
 
 
-# ---------------------------------------------------------------------------
-# 1) CLI + PYTHONHASHSEED pinning. This must run before we import brain/parser
-#    so that all string-set iteration during parsing is in a fixed order.
-# ---------------------------------------------------------------------------
 
 def _parse_args():
     p = argparse.ArgumentParser(description=__doc__)
@@ -68,10 +35,7 @@ def _parse_args():
 
 _ARGS = _parse_args()
 
-# PYTHONHASHSEED has to be set in env BEFORE the interpreter starts. If we
-# weren't launched with the right value, re-exec ourselves with it set.
-# Use --seed (or first of --seeds) as the hash seed so a given invocation
-# is reproducible end-to-end.
+
 _HASH_SEED = (
     int(_ARGS.seeds.split(",")[0]) if _ARGS.seeds else _ARGS.seed
 )
@@ -80,10 +44,7 @@ if os.environ.get("PYTHONHASHSEED") != str(_HASH_SEED):
     os.execv(sys.executable, [sys.executable] + sys.argv)
 
 
-# ---------------------------------------------------------------------------
-# 2) Path setup, then import the parser/brain. Monkey-patch Brain so every
-#    instance uses the seed we want without editing brain.py / parser.py.
-# ---------------------------------------------------------------------------
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, os.pardir))
@@ -91,24 +52,19 @@ for _p in (REPO_ROOT, HERE):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-import brain as ac_brain  # noqa: E402
-import parser as ac_parser  # noqa: E402
-from test_sentences import (  # noqa: E402
+import brain as ac_brain  
+import parser as ac_parser  
+from test_sentences import (  
     SENTENCES, TEMPLATE_DESCRIPTIONS, ACTIVE_TEMPLATES, EXCLUDED_TEMPLATES,
 )
 
 
-# A list so we can mutate it across seed iterations without rebinding the
-# monkey-patched __init__.
+
 _CURRENT_SEED = [_HASH_SEED]
 
 
 def _install_seed_patch():
-    """Replace brain.Brain.__init__ with a version that uses _CURRENT_SEED.
-
-    Brain's signature accepts ``seed=0`` already. We intercept calls,
-    drop any caller-supplied seed, and substitute ours.
-    """
+    
     _orig = ac_brain.Brain.__init__
 
     def _seeded_init(self, p, *args, **kwargs):
@@ -121,18 +77,12 @@ def _install_seed_patch():
 _install_seed_patch()
 
 
-# ---------------------------------------------------------------------------
-# 3) Parsing helpers.
-# ---------------------------------------------------------------------------
 
-# Parser prints `Got dependencies: ` then `print(dependencies)` on the next
-# line. The list stays on one line for our sizes, so we match greedily but
-# without re.DOTALL so `.` won't cross newlines.
 DEPS_RE = re.compile(r"Got dependencies:\s*\n\s*(\[.*\])")
 
 
 def run_one(sentence: str):
-    """Run the parser on one sentence; return (deps_list_or_None, err_or_None)."""
+    
     buf = io.StringIO()
     try:
         with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
@@ -141,9 +91,9 @@ def run_one(sentence: str):
                 language="English",
                 verbose=False,
                 debug=False,
-                # other args use parser.py defaults
+                
             )
-    except Exception as e:  # noqa: BLE001 -- keep going across sentences
+    except Exception as e:  
         return None, f"{type(e).__name__}: {e}\n{traceback.format_exc()}"
 
     out = buf.getvalue()
@@ -160,12 +110,10 @@ def deps_to_set(deps):
     return {tuple(d) for d in deps} if deps else set()
 
 
-# ---------------------------------------------------------------------------
-# 4) One full pass over all sentences (single seed).
-# ---------------------------------------------------------------------------
+
 
 def run_full_pass(seed: int):
-    """Run all 180 sentences under the given seed. Return a result dict."""
+    
     _CURRENT_SEED[0] = seed
 
     per_template = defaultdict(lambda: {"correct": 0, "total": 0})
@@ -234,9 +182,7 @@ def run_full_pass(seed: int):
     }
 
 
-# ---------------------------------------------------------------------------
-# 5) Printing.
-# ---------------------------------------------------------------------------
+
 
 def print_single_seed_report(result):
     print()
@@ -299,7 +245,7 @@ def print_multiseed_summary(results):
               f"({r['accuracy'] * 100:.1f}%)  "
               f"{r['wall_clock_seconds']:.0f}s")
     print()
-    # Per-template variance.
+    
     print("Per-template accuracy (mean +/- std across seeds):")
     for tid in range(1, 21):
         desc = TEMPLATE_DESCRIPTIONS[tid]
@@ -316,9 +262,7 @@ def print_multiseed_summary(results):
         print(f"  {label:<40s} {m:.2f}/10 +/- {sd:.2f}")
 
 
-# ---------------------------------------------------------------------------
-# 6) Driver.
-# ---------------------------------------------------------------------------
+
 
 def main():
     out_dir = os.path.join(REPO_ROOT, "parser_reproduced", "results_reproduced")
@@ -348,7 +292,7 @@ def main():
     else:
         r = run_full_pass(_ARGS.seed)
         print_single_seed_report(r)
-        # Tag the JSON with the excluded-templates reason.
+        
         r["excluded_templates"] = [
             {
                 "template_id": tid,

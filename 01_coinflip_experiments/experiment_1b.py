@@ -1,26 +1,3 @@
-"""Experiment 1b -- Assembly coin-flip: plasticity learns frequency (Figure 3b).
-
-Goal: show that the additive Hebbian rule drives the input weights so that, at
-test time, Pr(A_i wins) ~ T_i / (T1 + T2 + T3), where T_i is the number of times
-assembly A_i was presented during training.
-
-Setup (Dabagia et al. 2024, Fig. 3b):
-  * Three outcome assemblies A1, A2, A3, context assembly I; internal weight 2.
-  * T2 = T3 = 5 fixed; T1 swept from 1 to 40.
-  * Training: present A_i a total of T_i times.  Each presentation fires I then
-    A_i and applies the additive rule pi(w)=min(alpha, exp(lambda(1+beta-w))) to
-    the I->A_i synapses.  Because every I->A_i synapse starts at the baseline
-    weight 1 and receives the same increment, the assembly's input weight
-    follows the scalar recurrence w <- w + pi(w) (see Lemma 3), which grows like
-    lambda^{-1} log(c T_i) -- exactly the log-growth that turns the test-time
-    softmax read-out into proportional sampling.
-  * Test: fire I once with noise, run S to convergence (plasticity OFF), repeat
-    to estimate Pr(A1 wins).
-  * Repeat over random graphs; plot mean + [0.05, 0.95] band against the target
-    frequency T1/(T1+T2+T3).
-
-alpha=0.63, beta=0.5, lambda=26 (Sec. 4.1).
-"""
 
 from __future__ import annotations
 
@@ -42,7 +19,7 @@ def run(n=nx.N_DEFAULT, k=nx.K_DEFAULT, p=nx.P_DEFAULT, m=3, T2=5, T3=5,
     T1_values = np.unique(np.round(np.linspace(1, T1_max, n_points))).astype(int)
     n_points = len(T1_values)
 
-    # Trained input weights (graph-independent: scalar Hebbian recurrence).
+    
     w2 = nx.train_assembly_weight(T2, alpha=alpha, beta=beta, lam=lam)
     w3 = nx.train_assembly_weight(T3, alpha=alpha, beta=beta, lam=lam)
     w1_by_T1 = {int(T1): nx.train_assembly_weight(int(T1), alpha=alpha,

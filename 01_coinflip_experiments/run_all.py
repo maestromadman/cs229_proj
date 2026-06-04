@@ -1,20 +1,4 @@
-"""Run every coin-flip experiment and save its figure.
 
-    python3 run_all.py            # fast mean-field defaults (a few minutes)
-    python3 run_all.py --full     # paper-scale repetition counts (slower)
-
-Reproduces, from Dabagia et al. 2024 "Coin-Flipping In The Brain":
-    figure_3a.png   weight sweep (Fig 3a)
-    figure_3b.png   plasticity learns frequency (Fig 3b)
-    figure_4ab.png  varying number of assemblies (Fig 4a, 4b)
-    figure_5.png    error vs cap size (Fig 5)
-    figure_8b.txt   trigram language model sample (Fig 8b)
-
-All experiments use the fast mean-field engine.  Fig 5's full decreasing curve
-and a neuron-level language model need the faithful sparse engine
-(experiment_2.py --engine sparse); that is a large job for dedicated compute and
-is not launched here.
-"""
 
 from __future__ import annotations
 
@@ -23,7 +7,7 @@ import os
 import sys
 import time
 
-# Allow running from any working directory.
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import experiment_1a
@@ -76,8 +60,7 @@ def main():
     experiment_2.plot(devs, trials_5, graphs_5, "figure_5.png", engine="meanfield")
 
     print("\n" + "=" * 70 + "\nFigure 8(b): trigram language model\n" + "=" * 70)
-    # seed 4 yields a representative figure-8b-like sample (any seed is a valid
-    # coin-flip realization; pass --seed / use experiment_3.py --samples to vary).
+    
     tokens, vocab, trigs, gen, text = experiment_3.run(seed=4)
     with open("figure_8b.txt", "w") as f:
         f.write(text.replace(" . ", ".\n") + "\n\n")

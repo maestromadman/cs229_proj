@@ -1,27 +1,3 @@
-"""200-sentence test set for reproducing the syntax experiment from
-Mitropolsky, Collins, Papadimitriou (2021) "A Biologically Plausible Parser",
-Section 5 / Section 8.
-
-Each of the 20 templates has 10 sentences. All sentences use only the
-vocabulary that ships in the repository's LEXEME_DICT:
-
-    DET     : the, a
-    NOUN    : dogs, cats, mice, people, man, woman
-    V-TRANS : chase, love, bite, saw
-    V-INTRA : run, fly
-    ADV     : quickly
-    ADJ     : big, bad
-    PREP    : of, in
-    COPULA  : are
-
-The repo has no pronoun POS, so for Template 8 (PRO V PRO) we use bare nouns
-(this matches the parser's actual capability).
-
-For each sentence we encode the linguistically correct dependency graph
-that the FIBER_READOUT in parser.py is supposed to recover. Labels are the
-parser's own area names (SUBJ, OBJ, DET, ADJ, ADVERB, PREP_P, PREP), so
-they can be compared directly to parser output.
-"""
 
 from collections import namedtuple
 
@@ -52,11 +28,7 @@ TEMPLATE_DESCRIPTIONS = {
 def deps_for_intrans(subj, verb, subj_det=None, subj_adj=None,
                      adverb=None, pp1=None, pp2=None,
                      subj_pp=None):
-    """Build dep set for an intransitive verb sentence.
-
-    pp1/pp2 = (prep, noun) attached to verb.
-    subj_pp = (prep, noun) attached to the subject noun.
-    """
+   
     d = {(verb, subj, "SUBJ")}
     if subj_det:
         d.add((subj, subj_det, "DET"))
@@ -69,9 +41,7 @@ def deps_for_intrans(subj, verb, subj_det=None, subj_adj=None,
         d.add((verb, n, "PREP_P"))
         d.add((n, p, "PREP"))
     if pp2:
-        # The base parser handles the second intrans PP as attaching to
-        # the first PP's noun (linguistically, "with the backpack" attaches
-        # to "school" in the paper's example). Mirror that.
+        
         p, n = pp2
         first_n = pp1[1]
         d.add((first_n, n, "PREP_P"))
@@ -109,7 +79,7 @@ def deps_for_trans(subj, verb, obj,
 def deps_for_copula_noun(subj, cop, pred_noun,
                          subj_det=None, subj_adj=None,
                          pred_det=None):
-    """COPULA + predicate noun -> predicate labeled OBJ by the parser."""
+    
     d = {(cop, subj, "SUBJ"), (cop, pred_noun, "OBJ")}
     if subj_det:
         d.add((subj, subj_det, "DET"))
@@ -122,7 +92,7 @@ def deps_for_copula_noun(subj, cop, pred_noun,
 
 def deps_for_copula_adj(subj, cop, pred_adj,
                         subj_det=None, subj_adjs=()):
-    """COPULA + predicate adj -> predicate labeled ADJ by the parser."""
+    
     d = {(cop, subj, "SUBJ"), (cop, pred_adj, "ADJ")}
     if subj_det:
         d.add((subj, subj_det, "DET"))
@@ -131,11 +101,9 @@ def deps_for_copula_adj(subj, cop, pred_adj,
     return d
 
 
-# ---------------------------------------------------------------------------
-# Build all 200 sentences.
-# ---------------------------------------------------------------------------
 
-SENTENCES = []  # list of dicts
+
+SENTENCES = []  
 
 
 def add(tid, sent, deps):
@@ -147,13 +115,13 @@ def add(tid, sent, deps):
     })
 
 
-# --- Template 1: N V-INTRANS ---
+
 for s, v in [("dogs", "run"), ("cats", "fly"), ("mice", "run"), ("people", "fly"),
              ("dogs", "fly"), ("cats", "run"), ("mice", "fly"), ("people", "run"),
              ("man", "run"), ("woman", "fly")]:
     add(1, f"{s} {v}", deps_for_intrans(s, v))
 
-# --- Template 2: N V N ---
+
 T2 = [("dogs", "chase", "cats"), ("cats", "chase", "mice"),
       ("mice", "love", "dogs"), ("people", "bite", "cats"),
       ("dogs", "love", "mice"), ("cats", "bite", "people"),
@@ -162,7 +130,7 @@ T2 = [("dogs", "chase", "cats"), ("cats", "chase", "mice"),
 for s, v, o in T2:
     add(2, f"{s} {v} {o}", deps_for_trans(s, v, o))
 
-# --- Template 3: D N V-INTRANS ---
+
 T3 = [("the", "dogs", "run"), ("the", "cats", "fly"),
       ("a", "man", "run"), ("a", "woman", "fly"),
       ("the", "mice", "run"), ("the", "people", "fly"),
@@ -171,7 +139,7 @@ T3 = [("the", "dogs", "run"), ("the", "cats", "fly"),
 for d, s, v in T3:
     add(3, f"{d} {s} {v}", deps_for_intrans(s, v, subj_det=d))
 
-# --- Template 4: D N V N or N V D N (mix) ---
+
 T4 = [
     ("the", "dogs", "chase", None, "cats"),
     ("a", "man", "saw", None, "woman"),
@@ -189,7 +157,7 @@ for sd, s, v, od, o in T4:
     add(4, " ".join(toks),
         deps_for_trans(s, v, o, subj_det=sd, obj_det=od))
 
-# --- Template 5: D N V D N ---
+
 T5 = [("the", "man", "saw", "the", "woman"),
       ("the", "dogs", "chase", "the", "cats"),
       ("a", "man", "love", "a", "woman"),
@@ -204,7 +172,7 @@ for sd, s, v, od, o in T5:
     add(5, f"{sd} {s} {v} {od} {o}",
         deps_for_trans(s, v, o, subj_det=sd, obj_det=od))
 
-# --- Template 6: ADJ N V N or N V ADJ N ---
+
 T6 = [
     ("big", "dogs", "chase", None, "cats"),
     ("bad", "cats", "love", None, "mice"),
@@ -222,7 +190,7 @@ for sa, s, v, oa, o in T6:
     add(6, " ".join(toks),
         deps_for_trans(s, v, o, subj_adj=sa, obj_adj=oa))
 
-# --- Template 7: D ADJ N D ADJ N ---
+
 T7 = [
     ("the", "big", "man", "saw", "the", "bad", "woman"),
     ("a", "bad", "man", "bite", "a", "big", "woman"),
@@ -241,7 +209,7 @@ for sd, sa, s, v, od, oa, o in T7:
                        subj_det=sd, subj_adj=sa,
                        obj_det=od, obj_adj=oa))
 
-# --- Template 8: PRO V PRO (bare nouns; repo has no pronouns) ---
+
 T8 = [("man", "saw", "woman"), ("woman", "saw", "man"),
       ("dogs", "love", "mice"), ("cats", "bite", "people"),
       ("people", "saw", "dogs"), ("mice", "chase", "cats"),
@@ -250,7 +218,7 @@ T8 = [("man", "saw", "woman"), ("woman", "saw", "man"),
 for s, v, o in T8:
     add(8, f"{s} {v} {o}", deps_for_trans(s, v, o))
 
-# --- Template 9: {D} N V-INTRANS ADVERB ---
+
 T9 = [
     (None, "dogs", "run"), (None, "cats", "fly"),
     ("the", "mice", "run"), ("a", "man", "fly"),
@@ -263,7 +231,7 @@ for d, s, v in T9:
     add(9, " ".join(toks),
         deps_for_intrans(s, v, subj_det=d, adverb="quickly"))
 
-# --- Template 10: {D} N ADVERB V-INTRANS ---
+
 T10 = [
     (None, "dogs", "run"), (None, "cats", "fly"),
     ("the", "mice", "run"), ("a", "man", "fly"),
@@ -276,7 +244,7 @@ for d, s, v in T10:
     add(10, " ".join(toks),
         deps_for_intrans(s, v, subj_det=d, adverb="quickly"))
 
-# --- Template 11: {D} ADJ N V-INTRANS ADVERB (per "green ideas sleep furiously") ---
+
 T11 = [
     (None, "big", "dogs", "run"), (None, "bad", "cats", "fly"),
     ("the", "big", "mice", "run"), ("a", "bad", "man", "fly"),
@@ -289,7 +257,7 @@ for d, a, s, v in T11:
     add(11, " ".join(toks),
         deps_for_intrans(s, v, subj_det=d, subj_adj=a, adverb="quickly"))
 
-# --- Template 12: {D} N ADVERB V {D} N ---
+
 T12 = [
     (None, "dogs", "chase", None, "cats"),
     (None, "cats", "love", None, "mice"),
@@ -307,7 +275,7 @@ for sd, s, v, od, o in T12:
     add(12, " ".join(toks),
         deps_for_trans(s, v, o, subj_det=sd, obj_det=od, adverb="quickly"))
 
-# --- Template 13: {D} N V-INTRANS PP ---
+
 T13 = [
     (None, "dogs", "run", "in", "cats"),
     (None, "cats", "fly", "in", "mice"),
@@ -325,14 +293,7 @@ for d, s, v, p, n in T13:
     add(13, " ".join(toks),
         deps_for_intrans(s, v, subj_det=d, pp1=(p, n)))
 
-# --- Template 14: {D} N V-INTRANS PP PP ---
-# EXCLUDED. Structurally requires a COMP-style chained-PP extension
-# (PREP_P_1 / PREP_P_2 areas) not present in the base parser: with only
-# one PREP_P area, the second PP's noun overwrites the first PP's noun.
-# The paper does not provide code for this. Out of scope for an n/k
-# allocation study.
 
-# --- Template 15: {D} N V {D} N PP ---
 T15 = [
     (None, "dogs", "chase", None, "cats", "of", "mice"),
     (None, "cats", "love", None, "mice", "of", "dogs"),
@@ -352,7 +313,7 @@ for sd, s, v, od, o, p, n in T15:
                        subj_det=sd, obj_det=od,
                        obj_pp=(p, n)))
 
-# --- Template 16: {D} N PP V N (PP attaches to subject) ---
+
 T16 = [
     (None, "dogs", "in", "cats", "chase", "mice"),
     ("the", "man", "of", "woman", "saw", "dogs"),
@@ -370,15 +331,15 @@ for sd, s, p, n, v, o in T16:
     add(16, " ".join(toks),
         deps_for_trans(s, v, o,
                        subj_det=sd,
-                       # PP attached to subject
+                       
                        ))
-    # add subject-PP deps post-hoc
+    
     SENTENCES[-1]["expected_deps"] = [list(t) for t in sorted(
         set(tuple(x) for x in SENTENCES[-1]["expected_deps"])
         | {(s, n, "PREP_P"), (n, p, "PREP")}
     )]
 
-# --- Template 17: {D} N COPULA {D} N ---
+
 T17 = [
     (None, "dogs", "are", None, "cats"),
     ("the", "dogs", "are", None, "mice"),
@@ -396,7 +357,7 @@ for sd, s, cop, pd, p in T17:
     add(17, " ".join(toks),
         deps_for_copula_noun(s, cop, p, subj_det=sd, pred_det=pd))
 
-# --- Template 18: {D} N COPULA ADJ ---
+
 T18 = [
     (None, "dogs", "are", "big"),
     (None, "cats", "are", "bad"),
@@ -414,7 +375,7 @@ for sd, s, cop, a in T18:
     add(18, " ".join(toks),
         deps_for_copula_adj(s, cop, a, subj_det=sd))
 
-# --- Template 19: complex copula: {D} ADJ N COPULA ADJ ---
+
 T19 = [
     (None, "big", "dogs", "are", "bad"),
     (None, "bad", "cats", "are", "big"),
@@ -432,17 +393,14 @@ for sd, sa, s, cop, pa in T19:
     add(19, " ".join(toks),
         deps_for_copula_adj(s, cop, pa, subj_det=sd, subj_adjs=(sa,)))
 
-# --- Template 20: chained adjectives: {D} ADJ ADJ N COPULA ADJ ---
-# EXCLUDED. The paper itself (Section 6: "the big bad problem") states
-# this requires the COMP_1 / COMP_2 extension; only sketched in prose,
-# no code provided. Out of scope for an n/k allocation study.
+
 
 
 ACTIVE_TEMPLATES = [tid for tid in range(1, 21) if tid not in (14, 20)]
 EXCLUDED_TEMPLATES = (14, 20)
 
 assert len(SENTENCES) == 180, f"Expected 180 sentences, got {len(SENTENCES)}"
-# Per-template count check
+
 from collections import Counter
 counts = Counter(s["template_id"] for s in SENTENCES)
 for tid in ACTIVE_TEMPLATES:

@@ -1,23 +1,4 @@
-"""make_figures.py -- publication figures for the b_sweep results.
 
-Reads JSON output from 03_density/results/b_sweep/ and writes:
-
-  03_density/results/figure_1_accuracy_heatmap.png
-      A 5-row x 2-column heatmap of accuracy (DET/PREP density rows,
-      project_rounds columns). Annotated with the percentage and the raw
-      count per cell. Diverging RdYlGn colormap so the "headroom"
-      (green) vs "below floor" (red) regimes are visually distinct.
-
-  03_density/results/figure_2_density_cliff.png
-      Line plot of accuracy vs DET/PREP cap size k (log x-axis), one
-      line per project_rounds value (color/marker coded). Shaded band
-      highlights the cliff region between k=20 and k=10.
-
-All figures are 300 DPI PNG, suitable for an Overleaf paper.
-
-Usage:
-  python 03_density/make_figures.py
-"""
 
 import glob
 import json
@@ -28,29 +9,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-# ---------------------------------------------------------------------
-# Paths and ordering.
-# ---------------------------------------------------------------------
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SWEEP_DIR = os.path.join(HERE, "results", "b_sweep")
 OUT_DIR = os.path.join(HERE, "results")
 
-# Top-to-bottom in the heatmap, left-to-right in the line plot.
+
 VARIANTS = ["baseline", "B_original", "B_2", "B_3", "B_4"]
 ROUNDS = [20, 15, 12, 11, 10, 5]
 
-# Color per round budget (consistent across figures so the reader can
-# track which line is which). Sequential ordering: rounds=20 (most
-# budget) -> rounds=5 (least). Blue -> teal -> green -> olive ->
-# purple -> red, all colorblind-distinguishable.
+
 ROUND_COLORS = {
-    20: "#1f77b4",  # tab:blue
-    15: "#17becf",  # tab:teal
-    12: "#2ca02c",  # tab:green
-    11: "#bcbd22",  # tab:olive
-    10: "#9467bd",  # tab:purple
-    5:  "#d62728",  # tab:red
+    20: "#1f77b4",  
+    15: "#17becf",  
+    12: "#2ca02c",  
+    11: "#bcbd22",  
+    10: "#9467bd",  
+    5:  "#d62728",
 }
 ROUND_MARKERS = {
     20: "o",
@@ -62,9 +38,7 @@ ROUND_MARKERS = {
 }
 
 
-# ---------------------------------------------------------------------
-# Data loading.
-# ---------------------------------------------------------------------
+
 
 def load_sweep_data():
     """Return dict keyed by (variant, rounds) -> result dict."""
@@ -86,17 +60,12 @@ def warn_if_missing(data):
         )
 
 
-# ---------------------------------------------------------------------
-# Figure 1: accuracy heatmap.
-# ---------------------------------------------------------------------
 
 def figure_1_heatmap(data, outpath):
-    # Width scales with the number of round-budget columns so the
-    # per-cell annotations (percentage + count) never collide.
+    
     fig_w = 2.5 + 1.45 * len(ROUNDS)
     fig, ax = plt.subplots(figsize=(fig_w, 5.5))
 
-    # Build the accuracy matrix.
     acc = np.zeros((len(VARIANTS), len(ROUNDS)))
     counts = np.zeros_like(acc, dtype=int)
     for i, v in enumerate(VARIANTS):
@@ -109,18 +78,17 @@ def figure_1_heatmap(data, outpath):
                 acc[i, j] = cell["overall"]["accuracy"] * 100
                 counts[i, j] = cell["overall"]["total_correct"]
 
-    # Single-hue blue colormap. Light = low accuracy, dark = high.
+    
     im = ax.imshow(acc, cmap="Blues", aspect="auto", vmin=0, vmax=100)
 
-    # Annotate every cell with percentage + raw count.
+    
     for i in range(len(VARIANTS)):
         for j in range(len(ROUNDS)):
             if np.isnan(acc[i, j]):
                 ax.text(j, i, "missing", ha="center", va="center",
                         color="gray", fontsize=10, style="italic")
                 continue
-            # On a Blues colormap, dark cells (~80%+) need white text;
-            # light cells need black.
+            
             txt_color = "white" if acc[i, j] >= 60 else "black"
             ax.text(
                 j, i,
@@ -129,7 +97,7 @@ def figure_1_heatmap(data, outpath):
                 color=txt_color, fontsize=11, fontweight="bold",
             )
 
-    # y-axis labels: variant name + (n, k).
+    
     y_labels = []
     for v in VARIANTS:
         cell = data.get((v, ROUNDS[0])) or data.get((v, ROUNDS[1]))
@@ -141,7 +109,7 @@ def figure_1_heatmap(data, outpath):
     ax.set_yticks(range(len(VARIANTS)))
     ax.set_yticklabels(y_labels, fontsize=10)
 
-    # x-axis labels: just the number, with the meaning in the axis label.
+    
     ax.set_xticks(range(len(ROUNDS)))
     ax.set_xticklabels([str(r) for r in ROUNDS], fontsize=12)
     ax.tick_params(axis="x", which="both", length=0)
@@ -152,11 +120,9 @@ def figure_1_heatmap(data, outpath):
         "DET/PREP area size (n, k); sparsity k/n = 0.01",
         fontsize=11, labelpad=10,
     )
-    # No title — the colorbar already labels the heatmap values as
-    # "Accuracy (%)", and the methodology fits more naturally in the
-    # paper caption than in the figure itself.
+   
 
-    # Colorbar.
+    
     cbar = plt.colorbar(im, ax=ax, shrink=0.85, pad=0.04)
     cbar.set_label("Accuracy (%)", fontsize=11)
     cbar.ax.tick_params(labelsize=10)
@@ -167,14 +133,12 @@ def figure_1_heatmap(data, outpath):
     print(f"wrote {outpath}")
 
 
-# ---------------------------------------------------------------------
-# Figure 2: accuracy vs k line plot, with cliff annotation.
-# ---------------------------------------------------------------------
+
 
 def figure_2_cliff(data, outpath):
     fig, ax = plt.subplots(figsize=(7, 4.5))
 
-    # k values in the order of VARIANTS.
+    
     k_values = []
     for v in VARIANTS:
         cell = data.get((v, ROUNDS[0])) or data.get((v, ROUNDS[1]))
@@ -194,28 +158,23 @@ def figure_2_cliff(data, outpath):
             zorder=3,
         )
 
-    # Shade the BELOW-FLOOR region (k <= 10), where the parser hits
-    # the capacity-limited plateau and additional compute does not
-    # rescue it. The cliff in the r=20 line happens at the right edge
-    # of this band (between k=10 and k=20); we leave the cliff edge
-    # unshaded so the visual story is "everything in the shaded zone
-    # is broken, everything to the right is above the floor."
+    
     ax.axvspan(4.5, 10, alpha=0.13, color="#cc4444", zorder=1)
     ax.text(
-        np.sqrt(4.5 * 10), 6,  # geometric midpoint on log axis
+        np.sqrt(4.5 * 10), 6,  
         "below capacity floor",
         ha="center", va="bottom",
         fontsize=10, style="italic", color="#992222",
     )
-    # Mark the cliff edge with a thin vertical line.
+    
     ax.axvline(10, color="#992222", linestyle="--", linewidth=1,
                alpha=0.6, zorder=2)
 
-    # 100% reference line.
+    
     ax.axhline(100, color="gray", linestyle=":", linewidth=1, alpha=0.6,
                zorder=1)
 
-    # Axis formatting.
+   
     ax.set_xscale("log")
     ax.set_xticks(k_values)
     ax.set_xticklabels([str(k) for k in k_values])
@@ -242,9 +201,6 @@ def figure_2_cliff(data, outpath):
     print(f"wrote {outpath}")
 
 
-# ---------------------------------------------------------------------
-# Main.
-# ---------------------------------------------------------------------
 
 def main():
     data = load_sweep_data()

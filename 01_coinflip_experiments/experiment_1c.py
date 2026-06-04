@@ -1,18 +1,3 @@
-"""Experiment 1c -- Varying the number of assemblies (Figures 4a and 4b).
-
-Goal: show that the single additive plasticity rule recovers the observed
-frequency across different numbers of outcome assemblies m.
-
-For each m in 2..10, train m assemblies then estimate Pr(A1 wins):
-  * Fig 4(a): A1 fires 5*(m-1) times; A2..Am fire 5 times each.
-              Target = 5(m-1) / (5(m-1) + 5(m-1)) = 1/2  (flat).
-  * Fig 4(b): A1 fires 10 times; A2..Am fire 5 times each.
-              Target = 10 / (10 + 5(m-1)) = 2/(m+1)      (decreasing).
-
-Training uses the additive rule (alpha=0.63, beta=0.5, lambda=26); test-time
-sampling fires I once with noise and runs S to convergence with plasticity off.
-Estimated Pr(A1 wins) is averaged over graphs (500 noise samples each).
-"""
 
 from __future__ import annotations
 

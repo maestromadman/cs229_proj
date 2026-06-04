@@ -1,24 +1,9 @@
-"""Per-area population/cap configs for the Heterogeneous Neuron Density
-parser experiments.
 
-Every area in every config is required to satisfy ``k/n == 0.01``.
-
-External area names (used in the CONFIGS dict and CLI output) are kept
-in sync with the spec the user provided:
-
-    LEX   VERB  SUBJ  OBJ  DET  ADJ  ADV   PREP  PREPP
-
-Internally the parser uses ``ADVERB`` and ``PREP_P``; the runner maps
-those names where needed.
-"""
 
 
 CONFIGS = {
     "baseline": {
-        # Uniform -- matches the published parser at the recurrent areas
-        # (the only difference: LEX_k=100 here, 20 in the published code,
-        # so the LEX inner connectome is larger but every config is
-        # affected identically, preserving the comparison).
+        
         "LEX":   {"n": 10000, "k": 100},
         "VERB":  {"n": 10000, "k": 100},
         "SUBJ":  {"n": 10000, "k": 100},

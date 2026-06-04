@@ -1,37 +1,4 @@
-"""b_sweep.py -- closed-class density x project_rounds sweep.
 
-Extends the original 5-config experiment by varying *two* knobs:
-
-  1. DET/PREP density. Same as experiment B (closed-class shrinkage),
-     pushed progressively smaller to locate the floor.
-  2. project_rounds. The parser's computational budget. The published
-     parser uses 20; observed mean rounds-to-stabilize is ~5-10. Cutting
-     the budget down to 5 stresses the smaller-k configs, which need
-     more rounds to converge.
-
-Every other parser knob is held at the published value: p=0.1
-connectome sparsity, min_overlap=0.7 readout threshold, pre-allocated
-LEX assemblies + Hebbian plasticity. Only DET, PREP density and
-project_rounds vary across cells.
-
-Grid: 5 density variants x 2 project_rounds values (20 = published, 5 =
-stress) = 10 cells.
-
-Usage
------
-  # Smoke test (1 sentence per template, single worker):
-  python 03_density/b_sweep.py --variant baseline --rounds 20 \\
-      --limit-per-template 1 --workers 1
-
-  # Run a single cell of the grid:
-  python 03_density/b_sweep.py --variant B_3 --rounds 5
-
-  # Run the full 20-cell grid in one process (each cell gets its own Pool):
-  python 03_density/b_sweep.py --all --workers 4
-
-JSON output: one file per cell at
-  03_density/results/b_sweep/b_sweep_{variant}_r{rounds}.json
-"""
 
 import argparse
 import gc
@@ -44,9 +11,6 @@ import traceback
 from collections import defaultdict
 
 
-# ---------------------------------------------------------------------
-# Path setup -- must be before importing brain / parser / configs.
-# ---------------------------------------------------------------------
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, os.pardir))
@@ -55,33 +19,26 @@ for _p in (REPO_ROOT, REPRO_DIR, HERE):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-import brain as ac_brain  # noqa: E402
-import numpy as np  # noqa: E402
+import brain as ac_brain  
+import numpy as np  
 
-# Reuse infrastructure from run_parser_experiments. Importing it also
-# installs the Brain.__init__ seed patch exactly once per interpreter
-# (parent + each spawn worker), so we do not install a second one here.
-import run_parser_experiments as rpe  # noqa: E402
-from run_parser_experiments import (  # noqa: E402
+
+import run_parser_experiments as rpe  
+from run_parser_experiments import (  
     _empty_aggregate,
     _absorb_result,
     _finalize_aggregate,
 )
 
-from configs import validate_config  # noqa: E402
-from instrumented_parser import (  # noqa: E402
+from configs import validate_config  
+from instrumented_parser import (  
     ConfigurableEnglishParserBrain,
     parse_sentence_instrumented,
 )
-from test_sentences import SENTENCES, TEMPLATE_DESCRIPTIONS  # noqa: E402
+from test_sentences import SENTENCES, TEMPLATE_DESCRIPTIONS  
 
 
-# ---------------------------------------------------------------------
-# The sweep grid.
-# ---------------------------------------------------------------------
 
-# DET/PREP (n, k). All other recurrent areas stay at (10000, 100).
-# k/n = 0.01 holds for every entry.
 DENSITY_VARIANTS = {
     "baseline":   (10000, 100),
     "B_original": (4000, 40),
@@ -90,12 +47,7 @@ DENSITY_VARIANTS = {
     "B_4":        (500, 5),
 }
 
-# Round-budget settings to evaluate at. 20 is the published value
-# (generous headroom). 5 is right at the floor of observed mean
-# rounds-to-stabilize from the prior experiment. 10/12/15 are
-# intermediate points: B_2 (k=20) jumps from 64% at r=10 to 100% at
-# r=12, so r=11 is added to resolve whether the minimum sufficient
-# rounds for k=20 is exactly 11 or 12.
+
 PROJECT_ROUNDS_VALUES = [20, 15, 12, 11, 10, 5]
 
 
@@ -118,9 +70,6 @@ def build_config(det_prep_n, det_prep_k):
     }
 
 
-# ---------------------------------------------------------------------
-# Per-sentence driver with configurable project_rounds.
-# ---------------------------------------------------------------------
 
 def parse_one(area_config, sentence, project_rounds):
     """Fresh brain, parse one sentence, discard. Returns a result dict.
@@ -149,9 +98,7 @@ def parse_one(area_config, sentence, project_rounds):
         gc.collect()
 
 
-# ---------------------------------------------------------------------
-# Multiprocessing scaffolding.
-# ---------------------------------------------------------------------
+
 
 def _worker_init(seed):
     """Each spawn worker re-imports this module (which re-imports
@@ -167,9 +114,7 @@ def _worker_parse(args):
     return sentence_idx, sentence_info, r
 
 
-# ---------------------------------------------------------------------
-# Aggregation for one grid cell.
-# ---------------------------------------------------------------------
+
 
 def aggregate_cell(variant_name, area_config, sentences, project_rounds,
                    *, workers=1, seed=0):
@@ -229,9 +174,7 @@ def aggregate_cell(variant_name, area_config, sentences, project_rounds,
     return result
 
 
-# ---------------------------------------------------------------------
-# Sentence selection (full 18 active templates, optional cap for smoke).
-# ---------------------------------------------------------------------
+
 
 def filter_sentences(limit_per_template=None):
     active_tids = {tid for tid in TEMPLATE_DESCRIPTIONS if tid not in (14, 20)}
@@ -247,9 +190,7 @@ def filter_sentences(limit_per_template=None):
     return out
 
 
-# ---------------------------------------------------------------------
-# Output.
-# ---------------------------------------------------------------------
+
 
 def save_result(out_dir, result):
     label = f"{result['variant']}_r{result['project_rounds']}"
@@ -274,7 +215,7 @@ def print_grid(all_results):
         f"  r={r:<3} " for r in rounds
     )
 
-    # Accuracy.
+    
     print("\nAccuracy:")
     print(header)
     print("-" * len(header))
@@ -288,7 +229,7 @@ def print_grid(all_results):
             row += f"{cell:<7} "
         print(row)
 
-    # Mean rounds per word.
+
     print("\nMean rounds per word:")
     print(header)
     print("-" * len(header))
@@ -303,9 +244,7 @@ def print_grid(all_results):
         print(row)
 
 
-# ---------------------------------------------------------------------
-# CLI.
-# ---------------------------------------------------------------------
+
 
 def parse_args():
     p = argparse.ArgumentParser(
@@ -348,16 +287,14 @@ def parse_args():
 def main():
     args = parse_args()
 
-    # PYTHONHASHSEED has to be set in the env before Python starts using
-    # string hashing. Re-exec on the parent only; spawn workers inherit
-    # PYTHONHASHSEED from the parent process and so do not re-exec.
+    
     if os.environ.get("PYTHONHASHSEED") != str(args.seed):
         os.environ["PYTHONHASHSEED"] = str(args.seed)
         os.execv(sys.executable, [sys.executable] + sys.argv)
 
     rpe._CURRENT_SEED[0] = args.seed
 
-    # Which cells to run?
+    
     if args.all:
         cells = [
             (v, r) for v in DENSITY_VARIANTS for r in PROJECT_ROUNDS_VALUES
